@@ -15,6 +15,7 @@
 		1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */; };
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
+		1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */; };
 		27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E92AA607BA00C74113 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -29,12 +30,12 @@
 		1C98C6962AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69B2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69F2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A12AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +157,7 @@
 		1C98C69C2AA5F17F0029AAAA /* CreateDoodle */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69D2AA5F17F0029AAAA /* .gitkeep */,
+				1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */,
 			);
 			path = CreateDoodle;
 			sourceTree = "<group>";
@@ -275,6 +276,7 @@
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
+				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */,
 			);
