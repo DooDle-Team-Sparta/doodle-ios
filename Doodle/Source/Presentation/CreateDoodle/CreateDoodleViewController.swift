@@ -12,56 +12,72 @@ import UIKit
 class CreateDoodleViewController: UIViewController {
     
     //MARK: - UI
+    private lazy var canvasView = CanvasView().then({
+        
+        $0.backgroundColor = .systemGray4
+        
+    })
+    
     private lazy var stackView = UIStackView().then({
+        
         $0.axis = .horizontal
+        
     })
     
     private lazy var cancelButton = UIButton().then({
+        
         $0.setTitle("취소", for: .normal)
+        
     })
     
     private lazy var submitButton = UIButton().then({
+        
         $0.setTitle("등록", for: .normal)
+        
     })
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        self.title = "Doodle 만들기"
+        
         view.backgroundColor = .blue
+        
         setUI()
+        
         setLayout()
+        
         setDelegate()
+        
         addTarget()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
         super.viewDidDisappear(animated)
+        
     }
     
     //MARK: - Custom 메소드
     func setUI() {
-        
-        view.addSubview(stackView)
-        stackView.addSubViews([cancelButton,
-                               submitButton])
+        view.addSubview(canvasView)
         
     }
     
     func setLayout() {
         
-        stackView.snp.makeConstraints { constraint in
+        canvasView.snp.makeConstraints { constraint in
             constraint.center.equalToSuperview()
-        }
-        
-        cancelButton.snp.makeConstraints { constraint in
-            constraint.leading.equalTo(stackView.snp.leading)
-        }
-        
-        submitButton.snp.makeConstraints { constraint in
-            constraint.trailing.equalTo(stackView.snp.trailing)
+            constraint.leading.trailing.equalToSuperview()
+            constraint.height.equalTo(361)
         }
         
     }
@@ -81,11 +97,15 @@ class CreateDoodleViewController: UIViewController {
 extension CreateDoodleViewController {
     
     @objc func cancelButtonTapped(_ button: UIButton) {
+        
         print("cancelButtonTapped")
+        
     }
     
     @objc func submitButtonTapped(_ button: UIButton) {
+        
         print("submitButtonTapped")
+        
     }
     
 }
