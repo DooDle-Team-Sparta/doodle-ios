@@ -242,23 +242,3 @@ extension UIImage {
     static let clearImage = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
     
 }
-
-#if DEBUG && canImport(SwiftUI)
-import SwiftUI
-private struct UIViewControllerRepresenter: UIViewControllerRepresentable {
-    let viewController: UIViewController
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        return viewController
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
-
-struct UIViewControllerPreviewView: PreviewProvider {
-    static var previews: some View {
-        let viewController = CreateDoodleViewController()
-        return UIViewControllerRepresenter(viewController: viewController)
-    }
-}
-#endif
