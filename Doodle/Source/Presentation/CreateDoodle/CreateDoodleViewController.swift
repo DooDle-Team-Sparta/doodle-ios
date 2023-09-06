@@ -12,7 +12,7 @@ import UIKit
 class CreateDoodleViewController: UIViewController {
     
     //MARK: - UI
-    private lazy var stackView = UIStackView().then({
+    private lazy var topStackView = UIStackView().then({
         
         $0.axis = .horizontal
         $0.spacing = 16
@@ -125,7 +125,7 @@ class CreateDoodleViewController: UIViewController {
     //MARK: - Custom 메소드
     func setUI() {
         
-        view.addSubViews([stackView,
+        view.addSubViews([topStackView,
                           canvasView,
                           bottomStackView,
                           submitButton])
@@ -135,10 +135,10 @@ class CreateDoodleViewController: UIViewController {
     
     func setLayout() {
         
-        stackView.snp.makeConstraints { constraint in
-            constraint.top.equalTo(view.safeAreaLayoutGuide).offset(80)
-            constraint.bottom.equalTo(canvasView.snp.top).offset(16)
+        topStackView.snp.makeConstraints { constraint in
+            constraint.bottomMargin.equalTo(canvasView.snp.top)
             constraint.trailingMargin.equalToSuperview()
+            constraint.height.equalTo(canvasView).multipliedBy(0.2)
         }
         
         canvasView.snp.makeConstraints { constraint in
@@ -150,8 +150,14 @@ class CreateDoodleViewController: UIViewController {
         bottomStackView.snp.makeConstraints{ constraint in
             constraint.top.equalTo(canvasView.snp.bottom).offset(16)
             constraint.leading.trailing.equalToSuperview().inset(16)
-            constraint.height.equalTo(60)
         }
+        
+        colorCollectionView.snp.makeConstraints { constraint in
+            constraint.centerY.equalToSuperview()
+            constraint.width.equalToSuperview().multipliedBy(0.7)
+            constraint.height.equalToSuperview().multipliedBy(0.4)
+        }
+        
         
         colorButton.snp.makeConstraints { constraint in
             constraint.top.equalTo(canvasView.snp.bottom).offset(16)
@@ -160,9 +166,10 @@ class CreateDoodleViewController: UIViewController {
         }
         
         submitButton.snp.makeConstraints { constraint in
-            constraint.top.equalTo(canvasView.snp.bottom).offset(142)
             constraint.leading.equalTo(16)
             constraint.trailing.equalTo(-16)
+            constraint.top.equalTo(canvasView.snp.bottom).offset(142)
+            constraint.bottom.equalToSuperview().inset(16)
             constraint.height.equalTo(60)
         }
         
@@ -229,6 +236,19 @@ extension CreateDoodleViewController {
         
     }
     
+    @objc func regularButtonTapped() {
+        canvasView.defaultStrokeWeight = CGFloat(3)
+    }
+    
+    @objc func MediumButtonTapped() {
+        canvasView.defaultStrokeWeight = CGFloat(5)
+    }
+    
+    @objc func BoldButtonTapped() {
+        canvasView.defaultStrokeWeight = CGFloat(7)
+    }
+    
+    
 }
 
 extension CreateDoodleViewController: UIColorPickerViewControllerDelegate {
@@ -256,10 +276,14 @@ extension CreateDoodleViewController: UICollectionViewDelegate, UICollectionView
         
         let colorCell = colorCollectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.reuseIdentifier, for: indexPath)
         if let cell = colorCell as? ColorCell {
-            let color = canvasView.colors[indexPath.row]
+            let color = UIColor(cgColor: canvasView.colors[indexPath.row])
             cell.configure(color: color)
         }
         return colorCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        canvasView.defaultStrokeColor = UIColor(cgColor: canvasView.colors[indexPath.row])
     }
     
 }
@@ -297,24 +321,4 @@ extension UIImage {
     static let clearImage = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
     
 }
-
-#if DEBUG && canImport(SwiftUI)
-import SwiftUI
-private struct UIViewControllerRepresenter: UIViewControllerRepresentable {
-    let viewController: UIViewController
-    
-    func makeUIViewController(context: Context) -> UIViewController {
-        return viewController
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
-
-struct UIViewControllerPreviewView: PreviewProvider {
-    static var previews: some View {
-        let viewController = CreateDoodleViewController()
-        return UIViewControllerRepresenter(viewController: viewController)
-    }
-}
-#endif
 
