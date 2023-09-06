@@ -26,6 +26,7 @@ class ColorCell: UICollectionViewCell {
     func configure(color: CGColor) {
         
         contentView.backgroundColor = UIColor(cgColor: color)
+        contentView.layer.cornerRadius = CGFloat(8)
         
     }
     
