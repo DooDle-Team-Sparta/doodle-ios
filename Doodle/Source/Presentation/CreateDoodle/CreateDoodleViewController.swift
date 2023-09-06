@@ -53,9 +53,11 @@ class CreateDoodleViewController: UIViewController {
     
     private lazy var bottomStackView = UIStackView().then({
         
+        $0.backgroundColor = .clear
         $0.axis = .horizontal
+        $0.distribution = .equalCentering
         $0.spacing = 16
-        $0.addArrangedSubview(colorButton)
+        $0.addArrangedSubview(strokeWeightSegmentedControl)
         $0.addArrangedSubview(colorCollectionView)
         
     })
@@ -80,11 +82,9 @@ class CreateDoodleViewController: UIViewController {
         
     })
     
-    private var selectedColor: UIColor = .black
-    private lazy var colorButton = UIButton().then({
-        
-        $0.tintColor = .black
-        $0.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+    private lazy var strokeWeights: [CGFloat] = [3.0, 5.0, 7.0]
+    private lazy var strokeWeightSegmentedControl = UISegmentedControl(items: ["Regular", "Medium", "Bold"]).then({
+        $0.selectedSegmentIndex = 0
         
     })
     
@@ -150,19 +150,19 @@ class CreateDoodleViewController: UIViewController {
         bottomStackView.snp.makeConstraints{ constraint in
             constraint.top.equalTo(canvasView.snp.bottom).offset(16)
             constraint.leading.trailing.equalToSuperview().inset(16)
+            constraint.bottomMargin.equalTo(submitButton.snp.top)
         }
         
         colorCollectionView.snp.makeConstraints { constraint in
             constraint.centerY.equalToSuperview()
             constraint.width.equalToSuperview().multipliedBy(0.7)
-            constraint.height.equalToSuperview().multipliedBy(0.4)
+            constraint.height.equalToSuperview().multipliedBy(0.5)
         }
         
-        
-        colorButton.snp.makeConstraints { constraint in
-            constraint.top.equalTo(canvasView.snp.bottom).offset(16)
-            constraint.leadingMargin.equalToSuperview()
-            constraint.bottom.equalTo(submitButton.snp.top).offset(16)
+        strokeWeightSegmentedControl.snp.makeConstraints { constraint in
+            constraint.centerY.equalToSuperview()
+            constraint.bottom.equalTo(submitButton.snp.top)
+            constraint.height.equalTo(colorCollectionView.snp.height)
         }
         
         submitButton.snp.makeConstraints { constraint in
@@ -190,7 +190,7 @@ class CreateDoodleViewController: UIViewController {
         
         clearButton.addTarget(self, action: #selector(clearButtonTapped(_:)), for: .touchUpInside)
         
-        colorButton.addTarget(self, action: #selector(colorButtonTapped(_:)), for: .touchUpInside)
+        strokeWeightSegmentedControl.addTarget(self, action: #selector(strokeWeightButtonTapped(_:)), for: .valueChanged)
         
         submitButton.addTarget(self, action: #selector(submitButtonTapped(_:)), for: .touchUpInside)
         
@@ -236,18 +236,34 @@ extension CreateDoodleViewController {
         
     }
     
-    @objc func regularButtonTapped() {
+    @objc func strokeWeightButtonTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+            case 0:
+                canvasView.defaultStrokeWeight = 3.0
+            case 1:
+                canvasView.defaultStrokeWeight = 5.0
+            case 2:
+                canvasView.defaultStrokeWeight = 7.0
+            default:
+                break
+        }
+    }
+    
+}
+
+extension CreateDoodleViewController {
+    
+    private func regularMenu(_ action: UIAction) {
         canvasView.defaultStrokeWeight = CGFloat(3)
     }
     
-    @objc func MediumButtonTapped() {
+    private func mediumMenu(_ action: UIAction) {
         canvasView.defaultStrokeWeight = CGFloat(5)
     }
     
-    @objc func BoldButtonTapped() {
+    private func boldMenu(_ action: UIAction) {
         canvasView.defaultStrokeWeight = CGFloat(7)
     }
-    
     
 }
 
@@ -256,7 +272,6 @@ extension CreateDoodleViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         
         let selectedColor = viewController.selectedColor
-        self.selectedColor = selectedColor
         canvasView.defaultStrokeColor = selectedColor
         dismiss(animated: true, completion: nil)
         
