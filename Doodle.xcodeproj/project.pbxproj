@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA042AA8255300A819BB /* CanvasView.swift */; };
+		1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA052AA8255300A819BB /* ColorCell.swift */; };
 		1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */; };
 		1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */; };
 		1C98C6872AA5EDA10029AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C42BA042AA8255300A819BB /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		1C42BA052AA8255300A819BB /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		1C98C6682AA5ECDD0029AAAA /* Doodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C98C6792AA5ECDE0029AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		1C98C69C2AA5F17F0029AAAA /* CreateDoodle */ = {
 			isa = PBXGroup;
 			children = (
+				1C42BA042AA8255300A819BB /* CanvasView.swift */,
+				1C42BA052AA8255300A819BB /* ColorCell.swift */,
 				1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */,
 			);
 			path = CreateDoodle;
@@ -275,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */,
+				1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
 				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
@@ -408,6 +416,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -436,6 +445,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

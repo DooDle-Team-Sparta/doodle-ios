@@ -5,9 +5,10 @@
 //  Created by Yujin Kim on 2023-09-05.
 //
 
+import SnapKit
+import Then
 import UIKit
 
-/// 낙서 구조체
 struct Doodle {
     
     var color: UIColor
@@ -28,21 +29,7 @@ struct Doodle {
     
 }
 
-/// 낙서를 그릴 수 있는 캔버스
 class CanvasView: UIView {
-    
-    let colors: [CGColor] = [
-        
-        UIColor.black.cgColor,
-        UIColor.systemRed.cgColor,
-        UIColor.systemPink.cgColor,
-        UIColor.systemOrange.cgColor,
-        UIColor.systemYellow.cgColor,
-        UIColor.systemGreen.cgColor,
-        UIColor.systemBlue.cgColor,
-        UIColor.systemIndigo.cgColor,
-        
-    ]
     
     var currentStrokeWidth: CGFloat = 3.0
     
@@ -52,14 +39,14 @@ class CanvasView: UIView {
     
     private var currentStroke: [CGPoint] = []
     
-    private var storedStroke: [CGPoint] = []
+    private var storedStroke: [Doodle] = []
     
     
     // MARK: - User touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         guard let point = touches.first?.location(in: self) else { return }
-    
+        
         currentStroke.removeAll()
         
         currentStroke.append(point)
@@ -101,25 +88,40 @@ class CanvasView: UIView {
             context.setLineCap(.round)
             
             for (index, point) in doodle.point.enumerated() {
+                
                 if index == 0 {
+                    
                     context.move(to: point)
+                    
                 } else {
+                    
                     context.addLine(to: point)
+                    
                 }
+                
             }
+            
             context.strokePath()
         }
         
         context.setStrokeColor(currentStrokeColor.cgColor)
+        
         context.setLineWidth(currentStrokeWidth)
+        
         context.setLineCap(.round)
         
         for (index, point) in currentStroke.enumerated() {
+            
             if index == 0 {
+                
                 context.move(to: point)
+                
             } else {
+                
                 context.addLine(to: point)
+                
             }
+            
         }
         
         context.strokePath()
@@ -132,7 +134,9 @@ extension CanvasView {
     func addDoodle(_ color: UIColor, _ weight: CGFloat, _ point: [CGPoint]) {
         
         let doodle = Doodle(color: color, weight: weight, point: point)
+        
         doodleGroup.append(doodle)
+        
         setNeedsDisplay()
         
     }
@@ -140,34 +144,45 @@ extension CanvasView {
     func clear() {
         
         doodleGroup.removeAll()
+        
         setNeedsDisplay()
         
     }
     
     func undo() {
         
-        guard let stroke = doodleGroup.popLast() else { return }
-        //storedStroke.append(stroke.point)
+        guard let lastDoodle = doodleGroup.popLast() else { return }
+        
+        storedStroke.append(lastDoodle)
+        
         setNeedsDisplay()
+        
+        print("DoodleGroup: \(doodleGroup)")
         
     }
     
     func redo() {
         
-        guard let stroke = storedStroke.popLast() else { return }
+        guard let lastDoodle = storedStroke.popLast() else { return }
         
-        currentStroke.append(stroke)
+        doodleGroup.append(lastDoodle)
         
         setNeedsDisplay()
+        
+        print("DoodleGroup: \(doodleGroup)")
         
     }
     
     func renderCanvasViewToImage() -> UIImage? {
         
         let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
+        
         let image = renderer.image { _ in
+            
             self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+            
         }
+        
         return image
         
     }
