@@ -12,7 +12,7 @@ import CoreLocation
 import Then
 
 
-class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let mapView = MapView()
     

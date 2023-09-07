@@ -17,6 +17,12 @@
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
 		27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* mapView.swift */; };
 		27CA64E72AA6020300C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E62AA6020300C74113 /* SnapKit */; };
+		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
+		27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F12AA8488000C74113 /* CustomAnnotation.swift */; };
+		27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F32AA84CE000C74113 /* UIViewPreview.swift */; };
+		27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64FB2AA86C8100C74113 /* MapDetailView.swift */; };
+		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
+		27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281FA2AA9D5C4006E180B /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +37,16 @@
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69B2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69F2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		27CA64E32AA5FC3000C74113 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
+		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		27CA64F12AA8488000C74113 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		27CA64FB2AA86C8100C74113 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
+		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +176,6 @@
 		1C98C69E2AA5F17F0029AAAA /* MapBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69F2AA5F17F0029AAAA /* .gitkeep */,
 			);
 			path = MapBottomSheet;
 			sourceTree = "<group>";
@@ -173,7 +183,13 @@
 		1C98C6A02AA5F17F0029AAAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				27CA64F12AA8488000C74113 /* CustomAnnotation.swift */,
+				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
+				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
+				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
 				27CA64E32AA5FC3000C74113 /* mapView.swift */,
+				27CA64FB2AA86C8100C74113 /* MapDetailView.swift */,
+				27CA64EF2AA7031F00C74113 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -275,6 +291,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
+				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
+				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
+				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
+				27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */,
+				27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
 				27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */,

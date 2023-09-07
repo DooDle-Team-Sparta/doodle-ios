@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import UIKit
 
-class ootViewController: UIViewController {
+class RootViewController: MapViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
