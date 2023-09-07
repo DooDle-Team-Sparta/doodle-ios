@@ -448,30 +448,30 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 }
 
-#if DEBUG
-
-struct ViewControllerRepresentable: UIViewControllerRepresentable{
-    
-    //    update
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        
-    }
-    @available(iOS 13.0, *)
-    func makeUIViewController(context: Context) -> UIViewController {
-        bottomViewController()
-    }
-    //    makeui
-    
-}
-
-
-struct ViewController_Previews: PreviewProvider{
-    static var previews: some View{
-        ViewControllerRepresentable()
-            .previewDisplayName("아이폰 14")
-        
-    }
-}
-
-
-#endif
+//#if DEBUG
+//
+//struct ViewControllerRepresentable: UIViewControllerRepresentable{
+//    
+//    //    update
+//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+//        
+//    }
+//    @available(iOS 13.0, *)
+//    func makeUIViewController(context: Context) -> UIViewController {
+//        bottomViewController()
+//    }
+//    //    makeui
+//    
+//}
+//
+//
+//struct ViewController_Previews: PreviewProvider{
+//    static var previews: some View{
+//        ViewControllerRepresentable()
+//            .previewDisplayName("아이폰 14")
+//        
+//    }
+//}
+//
+//
+//#endif
