@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA042AA8255300A819BB /* CanvasView.swift */; };
+		1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA052AA8255300A819BB /* ColorCell.swift */; };
 		0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705EB2D2AA740E40032420E /* nowTableViewCell.swift */; };
 		073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */; };
 		073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93E02AA5F8030008DEC7 /* bottomViewController.swift */; };
@@ -19,6 +21,7 @@
 		1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */; };
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
+		1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */; };
 		27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* mapView.swift */; };
 		27CA64E72AA6020300C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E62AA6020300C74113 /* SnapKit */; };
 		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
@@ -35,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C42BA042AA8255300A819BB /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		1C42BA052AA8255300A819BB /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		0705EB2D2AA740E40032420E /* nowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPageViewController.swift; sourceTree = "<group>"; };
 		073E93E02AA5F8030008DEC7 /* bottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,8 @@
 		1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		1C98C6962AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C69B2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C69F2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -62,6 +69,7 @@
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
 		C71D12A12AA6ACAA0090581B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDoneViewController.swift; sourceTree = "<group>"; };
 		C7C86CA22AA9755B0005AEAE /* practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice.swift; sourceTree = "<group>"; };
@@ -188,7 +196,9 @@
 		1C98C69C2AA5F17F0029AAAA /* CreateDoodle */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69D2AA5F17F0029AAAA /* .gitkeep */,
+				1C42BA042AA8255300A819BB /* CanvasView.swift */,
+				1C42BA052AA8255300A819BB /* ColorCell.swift */,
+				1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */,
 			);
 			path = CreateDoodle;
 			sourceTree = "<group>";
@@ -321,6 +331,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */,
+				1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */,
+				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
+				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
 				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
 				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
@@ -467,6 +481,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -495,6 +510,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
