@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705EB2D2AA740E40032420E /* nowTableViewCell.swift */; };
+		073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */; };
+		073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93E02AA5F8030008DEC7 /* bottomViewController.swift */; };
+		073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 073E93E62AA6B6D20008DEC7 /* SnapKit */; };
 		1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */; };
 		1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */; };
 		1C98C6872AA5EDA10029AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */; };
 		1C98C6882AA5EDA10029AAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6862AA5EDA10029AAAA /* Assets.xcassets */; };
 		1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6892AA5EFB30029AAAA /* RootViewController.swift */; };
 		1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */; };
-		1C98C6B22AA5F3AC0029AAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B12AA5F3AC0029AAAA /* SnapKit */; };
-		1C98C6B42AA5F3AC0029AAAA /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */; };
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0705EB2D2AA740E40032420E /* nowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
+		073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPageViewController.swift; sourceTree = "<group>"; };
+		073E93E02AA5F8030008DEC7 /* bottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomViewController.swift; sourceTree = "<group>"; };
 		1C98C6682AA5ECDD0029AAAA /* Doodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C98C6792AA5ECDE0029AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,10 +36,8 @@
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69B2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69F2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A12AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,10 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C98C6B22AA5F3AC0029AAAA /* SnapKit in Frameworks */,
+				073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */,
 				1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */,
 				1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */,
-				1C98C6B42AA5F3AC0029AAAA /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +168,8 @@
 		1C98C69E2AA5F17F0029AAAA /* MapBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69F2AA5F17F0029AAAA /* .gitkeep */,
+				073E93E02AA5F8030008DEC7 /* bottomViewController.swift */,
+				0705EB2D2AA740E40032420E /* nowTableViewCell.swift */,
 			);
 			path = MapBottomSheet;
 			sourceTree = "<group>";
@@ -190,7 +193,7 @@
 		1C98C6A42AA5F17F0029AAAA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6A52AA5F17F0029AAAA /* .gitkeep */,
+				073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -212,10 +215,9 @@
 			);
 			name = Doodle;
 			packageProductDependencies = (
-				1C98C6B12AA5F3AC0029AAAA /* SnapKit */,
-				1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */,
 				1C98C6B62AA5F3ED0029AAAA /* Then */,
 				1C98C6B92AA5F4160029AAAA /* Alamofire */,
+				073E93E62AA6B6D20008DEC7 /* SnapKit */,
 			);
 			productName = Doodle;
 			productReference = 1C98C6682AA5ECDD0029AAAA /* Doodle.app */;
@@ -246,9 +248,9 @@
 			);
 			mainGroup = 1C98C65F2AA5ECDD0029AAAA;
 			packageReferences = (
-				1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1C98C6B52AA5F3ED0029AAAA /* XCRemoteSwiftPackageReference "Then" */,
 				1C98C6B82AA5F4160029AAAA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1C98C6692AA5ECDD0029AAAA /* Products */;
 			projectDirPath = "";
@@ -277,7 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
+				0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */,
+				073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */,
 			);
@@ -480,7 +485,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -507,15 +512,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1C98C6B12AA5F3AC0029AAAA /* SnapKit */ = {
+		073E93E62AA6B6D20008DEC7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		1C98C6B62AA5F3ED0029AAAA /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
