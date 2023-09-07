@@ -19,6 +19,14 @@
 		1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */; };
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
+		27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* mapView.swift */; };
+		27CA64E72AA6020300C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E62AA6020300C74113 /* SnapKit */; };
+		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
+		27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F12AA8488000C74113 /* CustomAnnotation.swift */; };
+		27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F32AA84CE000C74113 /* UIViewPreview.swift */; };
+		27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64FB2AA86C8100C74113 /* MapDetailView.swift */; };
+		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
+		27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281FA2AA9D5C4006E180B /* CircleButton.swift */; };
 		C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D12A12AA6ACAA0090581B /* SignupViewController.swift */; };
 		C763D73E2AA83A6D00CFD5B1 /* LoginDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */; };
 		C77A361F2AA607480011F011 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C77A361E2AA607480011F011 /* SnapKit */; };
@@ -40,6 +48,16 @@
 		1C98C6962AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		27CA64E32AA5FC3000C74113 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
+		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		27CA64F12AA8488000C74113 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		27CA64FB2AA86C8100C74113 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
+		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		1C98C6A12AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CA64E72AA6020300C74113 /* SnapKit in Frameworks */,
 				073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */,
 				C77A361F2AA607480011F011 /* SnapKit in Frameworks */,
 				27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */,
@@ -186,7 +205,13 @@
 		1C98C6A02AA5F17F0029AAAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6A12AA5F17F0029AAAA /* .gitkeep */,
+				27CA64F12AA8488000C74113 /* CustomAnnotation.swift */,
+				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
+				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
+				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
+				27CA64E32AA5FC3000C74113 /* mapView.swift */,
+				27CA64FB2AA86C8100C74113 /* MapDetailView.swift */,
+				27CA64EF2AA7031F00C74113 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -228,6 +253,7 @@
 			packageProductDependencies = (
 				1C98C6B62AA5F3ED0029AAAA /* Then */,
 				1C98C6B92AA5F4160029AAAA /* Alamofire */,
+				27CA64E62AA6020300C74113 /* SnapKit */,
 				073E93E62AA6B6D20008DEC7 /* SnapKit */,
 				C77A361E2AA607480011F011 /* SnapKit */,
 				27CA64E92AA607BA00C74113 /* SnapKit */,
@@ -263,6 +289,7 @@
 			packageReferences = (
 				1C98C6B52AA5F3ED0029AAAA /* XCRemoteSwiftPackageReference "Then" */,
 				1C98C6B82AA5F4160029AAAA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				27CA64E52AA6020300C74113 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C77A361D2AA607480011F011 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				27CA64E82AA607BA00C74113 /* XCRemoteSwiftPackageReference "SnapKit" */,
@@ -294,6 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
+				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
+				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
+				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
+				27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */,
+				27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */,
 				073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
 				0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */,
@@ -301,6 +334,8 @@
 				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
 				C7C86CA32AA9755B0005AEAE /* practice.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
+				27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */,
+				1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */,
 				C763D73E2AA83A6D00CFD5B1 /* LoginDoneViewController.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
 			);
