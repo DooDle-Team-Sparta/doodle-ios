@@ -36,7 +36,6 @@
 		C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D12A12AA6ACAA0090581B /* SignupViewController.swift */; };
 		C763D73E2AA83A6D00CFD5B1 /* LoginDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */; };
 		C77A361F2AA607480011F011 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		C7C86CA32AA9755B0005AEAE /* practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C86CA22AA9755B0005AEAE /* practice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +66,6 @@
 		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		C71D12A12AA6ACAA0090581B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDoneViewController.swift; sourceTree = "<group>"; };
-		C7C86CA22AA9755B0005AEAE /* practice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +226,6 @@
 			children = (
 				1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */,
 				C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */,
-				C7C86CA22AA9755B0005AEAE /* practice.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */,
 				073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */,
 				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
-				C7C86CA32AA9755B0005AEAE /* practice.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
 				27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
