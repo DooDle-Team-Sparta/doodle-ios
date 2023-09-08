@@ -19,4 +19,8 @@ extension UIImage {
     
     static let eyeSlashImage = UIImage(systemName: "eye.slash", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
     
+    static let uncheckedImage = UIImage(named: "unchecked", in: nil, with: UIImage.SymbolConfiguration(scale: .large))
+    
+    static let checkedImage = UIImage(named: "checked", in: nil, with: UIImage.SymbolConfiguration(scale: .large))
+    
 }
