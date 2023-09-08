@@ -15,6 +15,7 @@
 		1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA052AA8255300A819BB /* ColorCell.swift */; };
 		1C5004352AAB56BE00DBE27E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */; };
 		1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */; };
+		1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */; };
 		1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */; };
 		1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */; };
 		1C98C6872AA5EDA10029AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */; };
@@ -34,7 +35,6 @@
 		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
 		27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281FA2AA9D5C4006E180B /* CircleButton.swift */; };
 		C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D12A12AA6ACAA0090581B /* SignupViewController.swift */; };
-		C763D73E2AA83A6D00CFD5B1 /* LoginDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */; };
 		C77A361F2AA607480011F011 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
@@ -46,6 +46,7 @@
 		1C42BA052AA8255300A819BB /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerView.swift; sourceTree = "<group>"; };
 		1C98C6682AA5ECDD0029AAAA /* Doodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C98C6792AA5ECDE0029AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		C71D12A12AA6ACAA0090581B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */,
-				C763D73D2AA83A6D00CFD5B1 /* LoginDoneViewController.swift */,
+				1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -326,6 +326,7 @@
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
 				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
+				1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */,
 				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
 				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
 				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
@@ -341,7 +342,6 @@
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
 				27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
-				C763D73E2AA83A6D00CFD5B1 /* LoginDoneViewController.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
