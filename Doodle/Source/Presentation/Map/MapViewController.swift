@@ -236,7 +236,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
         print("테스트 - \(mapView)")
         
-        mapView.reloadInputViews()
         
     }
 

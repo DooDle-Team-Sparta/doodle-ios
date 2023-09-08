@@ -274,6 +274,8 @@ final class SigninViewController: UIViewController {
         pwTextField.text = UserDefaults.standard.string(forKey: "password")
         setUpViews()
         setUpConstraints()
+        kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
+
     }
 
     // MARK: - viewWillAppear
@@ -447,8 +449,9 @@ final class SigninViewController: UIViewController {
                     }
 
                     // 다음 페이지 이동
-                    let doneVC = LoginDoneViewController()
-                    present(doneVC, animated: true)
+                    let doneVC = MapViewController()
+                    doneVC.modalPresentationStyle = .fullScreen
+                    self.present(doneVC, animated: true)
 
                 } else {
                     print("아이디 또는 비밀번호 틀림.")
@@ -456,7 +459,10 @@ final class SigninViewController: UIViewController {
             }
         }
     }
-
+    @objc func kakaoLoginButtonTapped() {
+            let bottomViewController = bottomViewController()
+            self.navigationController?.pushViewController(bottomViewController, animated: true)
+        }
     // 체크마크 버튼 누를시
     @objc func checkedButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()

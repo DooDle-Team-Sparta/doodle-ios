@@ -35,60 +35,9 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! nowTableViewCell
-        let imageView1 = UIImageView()
-        cell.addSubview(imageView1)
-        imageView1.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
-        imageView1.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 0).isActive = true
-//        imageView1.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
-//        imageView1.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: 0).isActive = true
-        imageView1.widthAnchor.constraint(equalToConstant: 280).isActive = true
-        imageView1.heightAnchor.constraint(equalToConstant: 92).isActive = true
-        imageView1.image = UIImage(named: "statusTest")
-        imageView1.contentMode = .scaleAspectFill
-        imageView1.translatesAutoresizingMaskIntoConstraints = false
-        imageView1.clipsToBounds = true
-        imageView1.layer.cornerRadius = 5
+//        cell.itemNameLabel.text = self.itemName[indexPath.row]
         cell.selectionStyle = .none
-        
-        let mapView = MKMapView()
-        cell.addSubview(mapView)
-        mapView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: 0).isActive = true
-        mapView.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        mapView.heightAnchor.constraint(equalToConstant: 92).isActive = true
-        mapView.clipsToBounds = true
-        mapView.layer.cornerRadius = 5
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.preferredConfiguration = MKHybridMapConfiguration()
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.isPitchEnabled = true
-        mapView.isRotateEnabled = true
-        mapView.showsCompass = true
-        mapView.showsScale = true
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
-        
-        func creatAnnotation(){
-            let annotation = MKPointAnnotation()
-            
-            annotation.coordinate = CLLocationCoordinate2D(latitude: 37.27543611, longitude: 127.4432194)
-            annotation.title = "예쁜 카페"
-            annotation.subtitle = "크리스마스 분위기 잔뜩나요"
-            mapView.addAnnotation(annotation)
-        }
-        
-        let label1 = UILabel()
-        cell.addSubview(label1)
-        label1.textAlignment = .center
-        label1.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
-        label1.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 50).isActive = true
-        label1.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        label1.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        label1.textColor = .white
-        label1.text = "서울 예쁜 카페 발견했어요"
-        
-        
+
         return cell
     }
     
@@ -181,8 +130,6 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.frame = view.frame
         view.clipsToBounds = true
         view.layer.cornerRadius = 23
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
-        view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         return view
     }()
@@ -239,12 +186,15 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         configureAll()
         doodleTableView.dataSource = self
         doodleTableView.delegate = self
         doodleTableView.register(nowTableViewCell.self, forCellReuseIdentifier: "Cell")
         defaults.setValue("\(+5)", forKey: "doodlePointPlus")
-
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
+        statusImage.addGestureRecognizer(tapGesture)
         addBtn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
 
     }
@@ -254,9 +204,8 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.navigationController?.pushViewController(myPageViewController, animated: true)
     }
     @objc func addBtnClick(){
-//        let addPage = addPage()
-//        self.navigationController?.pushViewController(addPage, animated: true)
-
+        let CreateDoodleViewController = CreateDoodleViewController()
+        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
     }
     
     func configureAll(){
@@ -283,7 +232,7 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(headerImage)
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 20),
+            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 100),
             headerImage.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20)
         ])
     }
@@ -291,7 +240,7 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(addBtn)
         addBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 33),
+            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 113),
             addBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 350)
         ])
     }
@@ -448,30 +397,30 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 }
 
-//#if DEBUG
-//
-//struct ViewControllerRepresentable: UIViewControllerRepresentable{
-//    
-//    //    update
-//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-//        
-//    }
-//    @available(iOS 13.0, *)
-//    func makeUIViewController(context: Context) -> UIViewController {
-//        bottomViewController()
-//    }
-//    //    makeui
-//    
-//}
-//
-//
-//struct ViewController_Previews: PreviewProvider{
-//    static var previews: some View{
-//        ViewControllerRepresentable()
-//            .previewDisplayName("아이폰 14")
-//        
-//    }
-//}
-//
-//
-//#endif
+#if DEBUG
+
+struct ViewControllerRepresentable: UIViewControllerRepresentable{
+    
+    //    update
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+    @available(iOS 13.0, *)
+    func makeUIViewController(context: Context) -> UIViewController {
+        bottomViewController()
+    }
+    //    makeui
+    
+}
+
+
+struct ViewController_Previews: PreviewProvider{
+    static var previews: some View{
+        ViewControllerRepresentable()
+            .previewDisplayName("아이폰 14")
+        
+    }
+}
+
+
+#endif
