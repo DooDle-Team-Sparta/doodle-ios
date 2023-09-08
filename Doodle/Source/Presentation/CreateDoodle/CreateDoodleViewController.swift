@@ -389,16 +389,6 @@ extension UIColor {
     }
 }
 
-extension UIImage {
-    
-    static let undoImage = UIImage(systemName: "arrow.uturn.backward.circle", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-    static let redoImage = UIImage(systemName: "arrow.uturn.forward.circle", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-    static let clearImage = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-}
-
 //#if DEBUG && canImport(SwiftUI)
 //import SwiftUI
 //private struct UIViewControllerRepresenter: UIViewControllerRepresentable {
