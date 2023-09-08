@@ -19,11 +19,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let spartaCoordinate = CLLocationCoordinate2D(latitude: 37.50262815810942, longitude: 127.04461259087897)
     
     let locationManager = CLLocationManager()
-
+    
     
     let width = 177.0
     let height = 56.0
-
+    
     
     
     
@@ -46,13 +46,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         addCustomPin()
         
         buttonAddAction()
-        
         buttonActions()
         
         mapConfig()
         
         
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        sheetPresent()
     }
     
     private func addCustomPin() {
@@ -64,7 +68,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     
-    //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else {
             return nil
@@ -72,7 +75,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         if annotationView == nil {
-            //없으면 하나 만들어 주시고
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
             annotationView?.snp.makeConstraints{
                 $0.width.equalTo(62.1)
@@ -112,7 +114,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             
             
-//            callOutView를 통해서 추가적인 액션을 더해줄수도 있겠죠! 와 무지 간편합니다!
             let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             miniButton.setImage(UIImage(systemName: "person"), for: .normal)
             miniButton.tintColor = .blue
@@ -126,7 +127,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
-        
+    
     @objc func annotationTapped() {
         
     }
@@ -219,13 +220,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             checkCurrentLocationAuthorization(authorizationStatus: authorizationStatus)
         }
     }
-
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print(#function)
         checkUserLocationServicesAuthorization()
     }
-
+    
     func buttonActions() {
         mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
     }
@@ -235,12 +236,45 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     @objc func buttonAddClick(){
-//        let CreateDoodleViewController = CreateDoodleViewController()
-//        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        //        let CreateDoodleViewController = CreateDoodleViewController()
+        //        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        
         let createDoodleViewController = CreateDoodleViewController()
         createDoodleViewController.modalPresentationStyle = .fullScreen
         self.present(createDoodleViewController, animated: true)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
+        swipeDown.direction = .down
+        createDoodleViewController.view.addGestureRecognizer(swipeDown)
+        
     }
+    
+    @objc func swipeDown(){
+        self.dismiss(animated: true)
+    }
+        
+    func sheetPresent(){
+        let bottomViewController = bottomViewController()
+        bottomViewController.isModalInPresentation = true
+        if let sheet = bottomViewController.sheetPresentationController {
+            sheet.preferredCornerRadius = 30
+            sheet.detents = [
+                .custom(resolver: {
+                0.15 * $0.maximumDetentValue
+            }),
+                .custom(resolver: {
+                                 0.55 * $0.maximumDetentValue
+                             }),
+                .large()]
+            sheet.largestUndimmedDetentIdentifier = .large
+        }
+        self.present(bottomViewController, animated: true)
+        
+        print("\n\n\n\n\n테스트\(self) - \n\n\n\n\n")
+    }
+
+    
+    
     private func mapConfig(){
         mapView.map.isRotateEnabled = false
         mapView.map.isPitchEnabled = false
@@ -251,8 +285,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         
     }
-
+    
 }
+
 
 
 
@@ -264,7 +299,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //    }
 //    @available(iOS 13.0.0, *)
 //    func makeUIViewController(context: Context) -> some UIViewController {
-//        RootViewController()
+//        MapViewController()
 //    }
 //}
 //@available(iOS 13.0, *)
