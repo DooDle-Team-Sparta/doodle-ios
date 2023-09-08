@@ -12,7 +12,7 @@ import CoreLocation
 import Then
 
 
-class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let mapView = MapView()
     
@@ -45,9 +45,12 @@ class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         
         addCustomPin()
         
+        buttonAddAction()
+        
         buttonActions()
         
         mapConfig()
+        
         
         
     }
@@ -227,6 +230,17 @@ class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManager
         mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
     }
     
+    func buttonAddAction() {
+        mapView.addDoodleButton.addTarget(self, action: #selector(buttonAddClick), for: .touchUpInside)
+    }
+    
+    @objc func buttonAddClick(){
+//        let CreateDoodleViewController = CreateDoodleViewController()
+//        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        let createDoodleViewController = CreateDoodleViewController()
+        createDoodleViewController.modalPresentationStyle = .fullScreen
+        self.present(createDoodleViewController, animated: true)
+    }
     private func mapConfig(){
         mapView.map.isRotateEnabled = false
         mapView.map.isPitchEnabled = false
@@ -242,26 +256,26 @@ class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManager
 
 
 
-#if DEBUG
-import SwiftUI
-struct ViewControllerRepresentable: UIViewControllerRepresentable {
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // empty
-    }
-    @available(iOS 13.0.0, *)
-    func makeUIViewController(context: Context) -> some UIViewController {
-        RootViewController()
-    }
-}
-@available(iOS 13.0, *)
-struct SnapkitVCRepresentable_PreviewProvider: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ViewControllerRepresentable()
-                .ignoresSafeArea()
-                .previewDisplayName("preview")
-                .previewDevice(PreviewDevice(rawValue: "iphone"))
-        }
-    }
-} #endif
+//#if DEBUG
+//import SwiftUI
+//struct ViewControllerRepresentable: UIViewControllerRepresentable {
+//    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+//        // empty
+//    }
+//    @available(iOS 13.0.0, *)
+//    func makeUIViewController(context: Context) -> some UIViewController {
+//        RootViewController()
+//    }
+//}
+//@available(iOS 13.0, *)
+//struct SnapkitVCRepresentable_PreviewProvider: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            ViewControllerRepresentable()
+//                .ignoresSafeArea()
+//                .previewDisplayName("preview")
+//                .previewDevice(PreviewDevice(rawValue: "iphone"))
+//        }
+//    }
+//} #endif
 
