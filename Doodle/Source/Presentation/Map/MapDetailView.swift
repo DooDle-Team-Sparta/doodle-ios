@@ -69,7 +69,31 @@ class MapDetailView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
+        constSet()
+                
+        mainLabel.text = titleText
+        subLabel.text = contentText
+        heartLabel.text = "♥ \(likeCount)k"
         
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configure()
+        constSet()
+
+        mainLabel.text = titleText
+        subLabel.text = contentText
+        heartLabel.text = "♥ \(likeCount)k"
+        
+    }
+
+    
+    
+    
+    
+    private func configure(){
         addSubview(mainLabel)
         addSubview(subLabel)
         addSubview(heartLabel)
@@ -80,26 +104,6 @@ class MapDetailView: UIView{
         addSubview(circleBtnShare)
         addSubview(circleBtnStar)
         addSubview(circleBtnHeart)
-        
-        stackView.backgroundColor = .brown
-        
-        mainLabel.text = titleText
-        subLabel.text = contentText
-        heartLabel.text = "♥ \(likeCount)k"
-        
-        configure()
-        constSet()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
-    
-    
-    private func configure(){
     }
     
     private func constSet(){

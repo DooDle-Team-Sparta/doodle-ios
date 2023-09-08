@@ -12,7 +12,7 @@ import CoreLocation
 import Then
 
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class RootViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let mapView = MapView()
     
@@ -225,7 +225,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func buttonActions() {
         mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
-        mapView.sesacLocationButton.addTarget(self, action: #selector(MoveLocation), for: .touchUpInside)
     }
     
     private func mapConfig(){
@@ -242,28 +241,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
 }
 
-//
-//
-//#if DEBUG
-//import SwiftUI
-//struct ViewControllerRepresentable: UIViewControllerRepresentable {
-//    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//        // empty
-//    }
-//    @available(iOS 13.0.0, *)
-//    func makeUIViewController(context: Context) -> some UIViewController {
-//        RootViewController()
-//    }
-//}
-//@available(iOS 13.0, *)
-//struct SnapkitVCRepresentable_PreviewProvider: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ViewControllerRepresentable()
-//                .ignoresSafeArea()
-//                .previewDisplayName("preview")
-//                .previewDevice(PreviewDevice(rawValue: "iphone"))
-//        }
-//    }
-//} #endif
+
+
+#if DEBUG
+import SwiftUI
+struct ViewControllerRepresentable: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // empty
+    }
+    @available(iOS 13.0.0, *)
+    func makeUIViewController(context: Context) -> some UIViewController {
+        RootViewController()
+    }
+}
+@available(iOS 13.0, *)
+struct SnapkitVCRepresentable_PreviewProvider: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ViewControllerRepresentable()
+                .ignoresSafeArea()
+                .previewDisplayName("preview")
+                .previewDevice(PreviewDevice(rawValue: "iphone"))
+        }
+    }
+} #endif
 
