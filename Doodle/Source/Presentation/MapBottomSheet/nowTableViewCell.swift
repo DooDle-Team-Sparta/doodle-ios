@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 
+
 class nowTableViewCell: UITableViewCell {
     
     
@@ -32,6 +33,7 @@ class nowTableViewCell: UITableViewCell {
         imageView1.translatesAutoresizingMaskIntoConstraints = false
         imageView1.clipsToBounds = true
         imageView1.layer.cornerRadius = 5
+        imageView1.backgroundColor = .clear
         
         let mapView = MKMapView()
         contentView.addSubview(mapView)
@@ -64,11 +66,16 @@ class nowTableViewCell: UITableViewCell {
         let label1 = UILabel()
         contentView.addSubview(label1)
         label1.textAlignment = .center
-        label1.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
-        label1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50).isActive = true
+        label1.centerYAnchor.constraint(equalTo: imageView1.centerYAnchor, constant: -2).isActive = true
+        label1.centerXAnchor.constraint(equalTo: imageView1.centerXAnchor, constant: 0).isActive = true
         label1.widthAnchor.constraint(equalToConstant: 200).isActive = true
         label1.heightAnchor.constraint(equalToConstant: 50).isActive = true
         label1.textColor = .white
+        label1.layer.shadowOffset = CGSize(width: 2, height: 2)
+        label1.layer.shadowOpacity = 0.8
+        label1.layer.shadowRadius = 2
+        label1.layer.shadowColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label1.translatesAutoresizingMaskIntoConstraints = false
         label1.text = "서울 예쁜 카페 발견했어요"
         
     }

@@ -17,29 +17,20 @@ import MapKit
 //}
 let defaults = UserDefaults.standard
 
-class pointClass{
+
+class PointClass{
+
     var price: Int
-    
+
     init(price: Int) {
         self.price = price
     }
+
 }
 
-
-class bottomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
-                            {
+class bottomViewController: UIViewController,UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! nowTableViewCell
-//        cell.itemNameLabel.text = self.itemName[indexPath.row]
-        cell.selectionStyle = .none
-
-        return cell
-    }
+    let pointAll = PointClass(price: 0)
     
 //    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
 //        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -75,10 +66,10 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.textAlignment = .left
         return view
     }()
-    let doodlePointLabel2 : UILabel = {
+    lazy var doodlePointLabel2 : UILabel = {
         let view = UILabel()
-        view.text = "\(defaults.integer(forKey: "doodlePointPlus")) P" // 포인트 입력값 받아야함
         view.textColor = UIColor(red: 0.213, green: 0.213, blue: 0.213, alpha: 1)
+        view.text = "0 P"
         view.font = UIFont.boldSystemFont(ofSize: 12)
         view.textAlignment = .center
         return view
@@ -155,16 +146,16 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.progressViewStyle = .default
         view.progressTintColor = UIColor(red: 1, green: 0.745, blue: 0.094, alpha: 1)
         view.transform = view.transform.scaledBy(x: 1, y: 2)
-        view.setProgress(0.2, animated: true)
+        view.setProgress(0, animated: true)
         return view
     }()
     let doodlePointResult : UILabel = {
         let view = UILabel()
-        var paragraphStyle = NSMutableParagraphStyle()
-        view.attributedText = NSMutableAttributedString(string: "40 / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         view.textColor = UIColor(red: 0.213, green: 0.213, blue: 0.213, alpha: 1)
         view.font = UIFont.boldSystemFont(ofSize: 12)
         view.textAlignment = .center
+        var paragraphStyle = NSMutableParagraphStyle()
+        view.attributedText = NSMutableAttributedString(string: "0 / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return view
     }()
     let locateLabel : UILabel = {
@@ -191,7 +182,7 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         doodleTableView.dataSource = self
         doodleTableView.delegate = self
         doodleTableView.register(nowTableViewCell.self, forCellReuseIdentifier: "Cell")
-        defaults.setValue("\(+5)", forKey: "doodlePointPlus")
+//        defaults.setValue("\(+5)", forKey: "doodlePointPlus")
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
         statusImage.addGestureRecognizer(tapGesture)
@@ -206,7 +197,20 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     @objc func addBtnClick(){
         let CreateDoodleViewController = CreateDoodleViewController()
         self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        pointAll.price += 30
+        doodlePointLabel2.text = "\(pointAll.price) P"
+        var paragraphStyle = NSMutableParagraphStyle()
+        doodlePointResult.attributedText = NSMutableAttributedString(string: "\(pointAll.price) / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        tierProgressView.progress += 0.1
+        if tierProgressView.progress == 1 {
+            statusTier.text = "등급 업 가능!"
+            
+        }
     }
+//
+//    func setLabel(){
+//        doodlePointLabel2.text = "\(pointAll.price) P"
+//    }
     
     func configureAll(){
         configureHeader()
@@ -370,8 +374,8 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         doodlePointResult.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             doodlePointResult.topAnchor.constraint(equalTo: statusImage.bottomAnchor , constant: 18),
-            doodlePointResult.trailingAnchor.constraint(equalTo: doodleStatus.trailingAnchor , constant: -18),
-            doodlePointResult.widthAnchor.constraint(equalToConstant: 60),
+            doodlePointResult.leadingAnchor.constraint(equalTo: doodleStatus.leadingAnchor , constant: 280),
+            doodlePointResult.widthAnchor.constraint(equalToConstant: 66),
             doodlePointResult.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
@@ -397,6 +401,19 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 }
 
+extension bottomViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! nowTableViewCell
+        //        cell.itemNameLabel.text = self.itemName[indexPath.row]
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+}
 #if DEBUG
 
 struct ViewControllerRepresentable: UIViewControllerRepresentable{
