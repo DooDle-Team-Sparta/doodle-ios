@@ -15,4 +15,8 @@ extension UIImage {
     
     static let clearImage = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
     
+    static let eyeImage = UIImage(systemName: "eye.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+    
+    static let eyeSlashImage = UIImage(systemName: "eye.slash", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+    
 }
