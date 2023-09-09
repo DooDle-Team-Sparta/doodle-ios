@@ -216,7 +216,7 @@ final class SigninViewController: UIViewController {
         passwordTextField.text = UserDefaults.standard.string(forKey: "password")
         setUI()
         setUpConstraints()
-        createAccountButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         
     }
     
