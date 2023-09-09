@@ -13,26 +13,22 @@ import Then
 
 
 class MapView: UIView{
-
+    
     let myLocationButtonSize:CGFloat = 40
+    
     let addDoodleButtonSize:CGFloat = 50
-
+    
     let myLocationButton = CircleButton().then{
         $0.setIcon("scope")
         $0.layer.cornerRadius = 15
-
+        
     }
     let addDoodleButton = CircleButton().then{
         $0.setIcon("plus")
         $0.backgroundColor = UIColor(red: 1, green: 0.747, blue: 0.096, alpha: 1)
         $0.layer.cornerRadius = 30
-
+        
     }
-    
-//    let bottomSheet = UIView().then{
-//        $0.backgroundColor = .white
-//        $0.layer.cornerRadius = 20
-//    }
     
     let map = MKMapView()
     
@@ -53,12 +49,11 @@ class MapView: UIView{
         super.init(coder: coder)
         configure()
         makeConstraints()
-
+        
     }
     
     func configure() {
         addSubview(map)
-//        addSubview(bottomSheet)
         addSubview(myLocationButton)
         addSubview(addDoodleButton)
     }
@@ -78,13 +73,8 @@ class MapView: UIView{
             $0.right.equalToSuperview().inset(25)
             $0.bottom.equalToSuperview().inset(170)
             $0.width.height.equalTo(60)
-
+            
         }
-//        bottomSheet.snp.makeConstraints{
-//            $0.bottom.equalToSuperview().inset(-20)
-//            $0.left.right.equalToSuperview()
-//            $0.height.equalTo(150)
-//        }
         
     }
     

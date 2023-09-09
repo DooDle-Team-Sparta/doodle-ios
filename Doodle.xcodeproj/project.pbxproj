@@ -18,6 +18,7 @@
 		1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */; };
 		1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50043A2AAB6A4400DBE27E /* BaseUITextField.swift */; };
 		1C5004402AAC534300DBE27E /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50043F2AAC534300DBE27E /* MapDetailViewController.swift */; };
+		1C5004422AAC642900DBE27E /* DoodleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004412AAC642900DBE27E /* DoodleMarker.swift */; };
 		1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */; };
 		1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */; };
 		1C98C6872AA5EDA10029AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */; };
@@ -51,6 +52,7 @@
 		1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerView.swift; sourceTree = "<group>"; };
 		1C50043A2AAB6A4400DBE27E /* BaseUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITextField.swift; sourceTree = "<group>"; };
 		1C50043F2AAC534300DBE27E /* MapDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		1C5004412AAC642900DBE27E /* DoodleMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleMarker.swift; sourceTree = "<group>"; };
 		1C98C6682AA5ECDD0029AAAA /* Doodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C98C6792AA5ECDE0029AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +60,6 @@
 		1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C98C6862AA5EDA10029AAAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
-		1C98C6962AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +158,7 @@
 		1C98C6952AA5F17F0029AAAA /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6962AA5F17F0029AAAA /* .gitkeep */,
+				1C5004412AAC642900DBE27E /* DoodleMarker.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -336,6 +337,7 @@
 				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
 				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
 				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
+				1C5004422AAC642900DBE27E /* DoodleMarker.swift in Sources */,
 				1C5004352AAB56BE00DBE27E /* UIImage+Extension.swift in Sources */,
 				27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */,
 				27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */,

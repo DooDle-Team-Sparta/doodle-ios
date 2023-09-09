@@ -11,11 +11,19 @@ import SnapKit
 import Then
 import UIKit
 
+class DoodleAnnotation: MKPointAnnotation {
+    
+    var doodleImage: UIImage?
+    
+}
+
 class MapViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
     let mapView = MapView()
+    
+    private lazy var cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
     
     override func loadView() {
         
@@ -40,6 +48,24 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         presentBottomSheet()
+        
+        if let savedDoodlesData = UserDefaults.standard.object(forKey: "DoodleGroup") as? Data,
+           let savedDoodles = try? JSONDecoder().decode(DoodleMarker.self, from: savedDoodlesData),
+           let latitude  = savedDoodles.location?["latitude"],
+           let longitude  = savedDoodles.location?["longitude"],
+           let image  = UIImage(data: savedDoodles.doodle!) {
+            
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            let annotation = DoodleAnnotation()
+            
+            annotation.coordinate = location
+            
+            annotation.doodleImage = image
+            
+            mapView.map.addAnnotation(annotation)
+            
+        }
         
     }
     
@@ -124,7 +150,7 @@ class MapViewController: UIViewController {
         }
         
         self.present(bottomViewController, animated: true)
-
+        
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
@@ -150,7 +176,7 @@ extension MapViewController: CLLocationManagerDelegate {
             case .authorizedAlways, .authorizedWhenInUse: manager.startUpdatingLocation()
                 
             @unknown default: break
-
+                
         }
         
         if #available(iOS 14.0, *) {
@@ -198,9 +224,9 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !annotation.isKind(of: MKUserLocation.self) else {
-            return nil
-        }
+        guard !annotation.isKind(of: MKUserLocation.self),
+              let doodleAnnotation = annotation as? DoodleAnnotation else { return nil }
+        
         var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: "custom")
         
         if annotationView == nil {
@@ -211,35 +237,45 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "person")
-            imageView.backgroundColor = .orange
-            imageView.alpha = 0.5
-            imageView.layer.cornerRadius = 10
-            annotationView?.addSubview(imageView)
-            imageView.snp.makeConstraints{
-                $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6.21, left: 6.21, bottom: 18.64, right: 6.21))
-            }
-            let subtitleLabel = UILabel()
-            subtitleLabel.text = "이름이름"
-            subtitleLabel.font = UIFont.systemFont(ofSize: 8)
-            annotationView?.addSubview(subtitleLabel)
-            subtitleLabel.snp.makeConstraints{
-                $0.centerX.equalToSuperview()
-                $0.bottom.equalToSuperview().inset(6.21)
-            }
             
+            if let doodleImage = doodleAnnotation.doodleImage {
+                imageView.image = doodleImage
+                
+                imageView.backgroundColor = .orange
+                imageView.alpha = 1
+                
+                imageView.layer.cornerRadius = 10
+                
+                annotationView?.addSubview(imageView)
+                
+                imageView.snp.makeConstraints{
+                    
+                    $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6.21, left: 6.21,
+                                                                   bottom: 18.64, right: 6.21))
+                }
+                
+            }
             
             annotationView?.backgroundColor = UIColor(white: 1, alpha: 0.5)
+            
             annotationView?.layer.cornerRadius = 10
             
             annotationView?.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+            
             annotationView?.layer.shadowOpacity = 0.5
+            
             annotationView?.layer.shadowRadius = 4
+            
             annotationView?.layer.shadowOffset = CGSize(width: 10, height: 10)
+            
             annotationView?.layer.shadowPath = nil
+            
             let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            
             miniButton.setImage(UIImage(systemName: "person"), for: .normal)
+            
             miniButton.tintColor = .blue
+            
             annotationView?.rightCalloutAccessoryView = miniButton
             
         } else {
@@ -274,7 +310,7 @@ extension MapViewController {
         mapView.map.showsUserLocation = false
         
         mapView.map.userTrackingMode = .none
-
+        
     }
     
     @objc func addButtonTapped() {
@@ -282,6 +318,8 @@ extension MapViewController {
         dismiss(animated: false)
         
         let createDoodleViewController = CreateDoodleViewController()
+        
+        createDoodleViewController.navigationItem.leftBarButtonItem = cancelButton
         
         createDoodleViewController.modalPresentationStyle = .fullScreen
         
@@ -302,5 +340,11 @@ extension MapViewController {
         presentBottomSheet()
         
     }
-
+    
+    @objc func cancelButtonTapped(_ button: UIButton) {
+        
+        dismiss(animated: true)
+        
+    }
+    
 }
