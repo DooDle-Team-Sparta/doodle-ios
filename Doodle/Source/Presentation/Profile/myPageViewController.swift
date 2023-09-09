@@ -5,15 +5,12 @@
 //  Created by t2023-m0088 on 2023/09/04.
 //
 
-import UIKit
 import SwiftUI
 import SnapKit
 import Then
-import Alamofire
+import UIKit
 
-
-
-class myPageViewController: UIViewController {
+class MyPageViewController: UIViewController {
     
     let myPageLabel : UILabel = {
         let view = UILabel()
@@ -368,7 +365,7 @@ struct ViewControllerRepresentable1: UIViewControllerRepresentable{
     }
     @available(iOS 13.0, *)
     func makeUIViewController(context: Context) -> UIViewController {
-        myPageViewController()
+        MyPageViewController()
     }
     //    makeui
     

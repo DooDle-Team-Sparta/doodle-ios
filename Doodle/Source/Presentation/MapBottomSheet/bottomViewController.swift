@@ -190,7 +190,7 @@ class BottomViewController: UIViewController,UITableViewDelegate{
     }
     
     @objc func StatusImageClick(_ gesture: UITapGestureRecognizer){
-        let myPageViewController = myPageViewController()
+        let myPageViewController = MyPageViewController()
 //        self.navigationController?.pushViewController(myPageViewController, animated: true)
         myPageViewController.modalPresentationStyle = .overCurrentContext
         self.present(myPageViewController, animated: true)
