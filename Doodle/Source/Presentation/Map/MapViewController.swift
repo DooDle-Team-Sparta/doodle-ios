@@ -55,7 +55,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         sheetPresent()
     }
     
@@ -109,7 +109,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotationView?.layer.shadowOffset = CGSize(width: 10, height: 10)
             annotationView?.layer.shadowPath = nil
             
-            annotationView?.canShowCallout = true
+//            annotationView?.canShowCallout = true
             
             
             
@@ -129,7 +129,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     @objc func annotationTapped() {
-        
     }
     
     @objc func MoveLocation() {
@@ -238,19 +237,36 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @objc func buttonAddClick(){
         //        let CreateDoodleViewController = CreateDoodleViewController()
         //        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        self.dismiss(animated: false)
         
         let createDoodleViewController = CreateDoodleViewController()
+//        createDoodleViewController.isModalInPresentation = true
         createDoodleViewController.modalPresentationStyle = .fullScreen
         self.present(createDoodleViewController, animated: true)
-        
+
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeDown))
         swipeDown.direction = .down
         createDoodleViewController.view.addGestureRecognizer(swipeDown)
         
     }
     
+    func annotationClick(){
+        //        let CreateDoodleViewController = CreateDoodleViewController()
+        //        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        self.dismiss(animated: false)
+        
+        let mapDetailViewController = MapDetailViewController()
+        mapDetailViewController.closure = {self.sheetPresent()}
+        
+        //        mapDetailViewController.isModalInPresentation = true
+        mapDetailViewController.modalPresentationStyle = .pageSheet
+        self.present(mapDetailViewController, animated: true)
+        }
+
+    
     @objc func swipeDown(){
         self.dismiss(animated: true)
+        sheetPresent()
     }
         
     func sheetPresent(){
@@ -270,7 +286,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         self.present(bottomViewController, animated: true)
         
-        print("\n\n\n\n\n테스트\(self) - \n\n\n\n\n")
+        print("\n\n\n\n\n테스sda트\(self) - \n\n\n\n\n")
     }
 
     
@@ -281,11 +297,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        print("테스트 - \(mapView)")
+        annotationClick()
         
-        
+        print("\n TTAA \n")
     }
-    
 }
 
 
