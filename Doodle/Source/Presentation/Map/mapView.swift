@@ -1,8 +1,8 @@
 //
 //  MapView.swift
-//  MapKitPlay
+//  Doodle
 //
-//  Created by 경원이 on 2022/01/21.
+//  Created by ThePerfectMartini on 2022/09/04.
 //
 
 import Foundation

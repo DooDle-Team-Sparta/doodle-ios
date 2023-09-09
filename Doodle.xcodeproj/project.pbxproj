@@ -28,7 +28,7 @@
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
 		1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */; };
-		27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* mapView.swift */; };
+		27CA64E42AA5FC3000C74113 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* MapView.swift */; };
 		27CA64E72AA6020300C74113 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E92AA607BA00C74113 /* SnapKit */; };
 		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
@@ -63,7 +63,7 @@
 		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
-		27CA64E32AA5FC3000C74113 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
+		27CA64E32AA5FC3000C74113 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		27CA64F12AA8488000C74113 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
 				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
 				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
-				27CA64E32AA5FC3000C74113 /* mapView.swift */,
+				27CA64E32AA5FC3000C74113 /* MapView.swift */,
 				27CA64FB2AA86C8100C74113 /* MapDetailView.swift */,
 				27CA64EF2AA7031F00C74113 /* MapViewController.swift */,
 			);
@@ -350,7 +350,7 @@
 				1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */,
 				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
-				27CA64E42AA5FC3000C74113 /* mapView.swift in Sources */,
+				27CA64E42AA5FC3000C74113 /* MapView.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
 				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
 			);
