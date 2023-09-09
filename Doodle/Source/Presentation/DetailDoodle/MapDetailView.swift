@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 
-class MapDetailView: UIView{
+class MapDetailView: UIView {
     
     var titleText = "집 인테리어 했어요"
     var contentText = "서울시 연남구 낄낄로 136번길, 5F"
@@ -71,7 +71,7 @@ class MapDetailView: UIView{
         super.init(frame: frame)
         configure()
         constSet()
-                
+        
         mainLabel.text = titleText
         subLabel.text = contentText
         heartLabel.text = "♥ \(likeCount)k"
@@ -82,13 +82,13 @@ class MapDetailView: UIView{
         super.init(coder: aDecoder)
         configure()
         constSet()
-
+        
         mainLabel.text = titleText
         subLabel.text = contentText
         heartLabel.text = "♥ \(likeCount)k"
         
     }
-
+    
     
     
     
@@ -100,7 +100,7 @@ class MapDetailView: UIView{
         addSubview(bottomShowButton)
         addSubview(bottomCancelButton)
         addSubview(imageView)
-
+        
         addSubview(circleBtnShare)
         addSubview(circleBtnStar)
         addSubview(circleBtnHeart)
@@ -163,7 +163,7 @@ class MapDetailView: UIView{
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct detailPreview: PreviewProvider{
+struct detailPreview: PreviewProvider {
     static var previews: some View {
         UIViewPreview {
             
