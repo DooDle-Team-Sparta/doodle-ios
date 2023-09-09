@@ -1,16 +1,15 @@
 //
-//  bottomViewController.swift
+//  BottomViewController.swift
 //  Doodle
 //
-//  Created by t2023-m0088 on 2023/09/04.
-//
+//  Created by Oong2 on 2023/09/04.
+//  Edited by yujinkim1 on 2023/09/09.
 
-import UIKit
 import SwiftUI
 import SnapKit
 import Then
-import Alamofire
 import MapKit
+import UIKit
 
 //class tableViewCell: UITableViewCell{
 //    static let reuseIdentifier = "Cell"
@@ -28,7 +27,7 @@ class PointClass{
 
 }
 
-class bottomViewController: UIViewController,UITableViewDelegate{
+class BottomViewController: UIViewController,UITableViewDelegate{
     
     let pointAll = PointClass(price: 0)
     
@@ -181,7 +180,7 @@ class bottomViewController: UIViewController,UITableViewDelegate{
         configureAll()
         doodleTableView.dataSource = self
         doodleTableView.delegate = self
-        doodleTableView.register(nowTableViewCell.self, forCellReuseIdentifier: "Cell")
+        doodleTableView.register(NowCell.self, forCellReuseIdentifier: "Cell")
 //        defaults.setValue("\(+5)", forKey: "doodlePointPlus")
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
@@ -403,13 +402,13 @@ class bottomViewController: UIViewController,UITableViewDelegate{
     }
 }
 
-extension bottomViewController:UITableViewDataSource{
+extension BottomViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! nowTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NowCell
         //        cell.itemNameLabel.text = self.itemName[indexPath.row]
         cell.selectionStyle = .none
         
@@ -426,7 +425,7 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable{
     }
     @available(iOS 13.0, *)
     func makeUIViewController(context: Context) -> UIViewController {
-        bottomViewController()
+        BottomViewController()
     }
     //    makeui
     

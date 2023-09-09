@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705EB2D2AA740E40032420E /* nowTableViewCell.swift */; };
+		0705EB2E2AA740E40032420E /* NowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705EB2D2AA740E40032420E /* NowCell.swift */; };
 		073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */; };
-		073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93E02AA5F8030008DEC7 /* bottomViewController.swift */; };
+		073E93E12AA5F8030008DEC7 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93E02AA5F8030008DEC7 /* BottomViewController.swift */; };
 		073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 073E93E62AA6B6D20008DEC7 /* SnapKit */; };
 		1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA042AA8255300A819BB /* CanvasView.swift */; };
 		1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA052AA8255300A819BB /* ColorCell.swift */; };
@@ -42,9 +42,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0705EB2D2AA740E40032420E /* nowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowTableViewCell.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
+		0705EB2D2AA740E40032420E /* NowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowCell.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		073E93DE2AA5F7E50008DEC7 /* myPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPageViewController.swift; sourceTree = "<group>"; };
-		073E93E02AA5F8030008DEC7 /* bottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottomViewController.swift; sourceTree = "<group>"; };
+		073E93E02AA5F8030008DEC7 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		1C42BA042AA8255300A819BB /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		1C42BA052AA8255300A819BB /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -206,8 +206,8 @@
 		1C98C69E2AA5F17F0029AAAA /* MapBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				073E93E02AA5F8030008DEC7 /* bottomViewController.swift */,
-				0705EB2D2AA740E40032420E /* nowTableViewCell.swift */,
+				073E93E02AA5F8030008DEC7 /* BottomViewController.swift */,
+				0705EB2D2AA740E40032420E /* NowCell.swift */,
 			);
 			path = MapBottomSheet;
 			sourceTree = "<group>";
@@ -342,9 +342,9 @@
 				073E93DF2AA5F7E50008DEC7 /* myPageViewController.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
 				1C5004402AAC534300DBE27E /* MapDetailViewController.swift in Sources */,
-				0705EB2E2AA740E40032420E /* nowTableViewCell.swift in Sources */,
+				0705EB2E2AA740E40032420E /* NowCell.swift in Sources */,
 				1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */,
-				073E93E12AA5F8030008DEC7 /* bottomViewController.swift in Sources */,
+				073E93E12AA5F8030008DEC7 /* BottomViewController.swift in Sources */,
 				1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */,
 				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,

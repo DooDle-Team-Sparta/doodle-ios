@@ -134,7 +134,7 @@ class MapViewController: UIViewController {
     }
     
     func presentBottomSheet() {
-        let bottomViewController = bottomViewController()
+        let bottomViewController = BottomViewController()
         bottomViewController.isModalInPresentation = true
         if let sheet = bottomViewController.sheetPresentationController {
             sheet.preferredCornerRadius = 30

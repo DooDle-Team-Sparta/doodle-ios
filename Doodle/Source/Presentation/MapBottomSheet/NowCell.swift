@@ -1,15 +1,14 @@
 //
-//  nowTableViewCell.swift
+//  NowCell.swift
 //  Doodle
 //
-//  Created by t2023-m0088 on 2023/09/05.
-//
+//  Created by Oong2 on 2023/09/05.
+//  Edited by yujinkim1 on 2023/09/09.
 
 import UIKit
 import MapKit
 
-
-class nowTableViewCell: UITableViewCell {
+class NowCell: UITableViewCell {
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

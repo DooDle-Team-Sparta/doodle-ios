@@ -428,7 +428,7 @@ extension SigninViewController {
     
     @objc func kakaoLoginButtonTapped() {
         
-        let bottomViewController = bottomViewController()
+        let bottomViewController = BottomViewController()
         
         self.navigationController?.pushViewController(bottomViewController, animated: true)
         
