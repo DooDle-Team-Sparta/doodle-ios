@@ -29,10 +29,10 @@ class MapView: UIView{
 
     }
     
-    let bottomSheet = UIView().then{
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 20
-    }
+//    let bottomSheet = UIView().then{
+//        $0.backgroundColor = .white
+//        $0.layer.cornerRadius = 20
+//    }
     
     let map = MKMapView()
     
@@ -58,7 +58,7 @@ class MapView: UIView{
     
     func configure() {
         addSubview(map)
-        addSubview(bottomSheet)
+//        addSubview(bottomSheet)
         addSubview(myLocationButton)
         addSubview(addDoodleButton)
     }
@@ -76,15 +76,15 @@ class MapView: UIView{
         }
         addDoodleButton.snp.makeConstraints{
             $0.right.equalToSuperview().inset(25)
-            $0.bottom.equalTo(bottomSheet.snp.top).inset(-20)
+            $0.bottom.equalToSuperview().inset(170)
             $0.width.height.equalTo(60)
 
         }
-        bottomSheet.snp.makeConstraints{
-            $0.bottom.equalToSuperview().inset(-20)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(150)
-        }
+//        bottomSheet.snp.makeConstraints{
+//            $0.bottom.equalToSuperview().inset(-20)
+//            $0.left.right.equalToSuperview()
+//            $0.height.equalTo(150)
+//        }
         
     }
     

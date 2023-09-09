@@ -192,7 +192,9 @@ class bottomViewController: UIViewController,UITableViewDelegate{
     
     @objc func StatusImageClick(_ gesture: UITapGestureRecognizer){
         let myPageViewController = myPageViewController()
-        self.navigationController?.pushViewController(myPageViewController, animated: true)
+//        self.navigationController?.pushViewController(myPageViewController, animated: true)
+        myPageViewController.modalPresentationStyle = .overCurrentContext
+        self.present(myPageViewController, animated: true)
     }
     @objc func addBtnClick(){
         let CreateDoodleViewController = CreateDoodleViewController()
