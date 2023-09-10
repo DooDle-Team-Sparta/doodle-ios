@@ -194,7 +194,7 @@ class CreateDoodleViewController: UIViewController {
         self.view.addSubview(backBtn)
         backBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 20),
+            backBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 50),
             backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 10),
             backBtn.widthAnchor.constraint(equalToConstant: 56),
             backBtn.heightAnchor.constraint(equalToConstant: 30)
