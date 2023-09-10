@@ -12,6 +12,16 @@ import UIKit
 
 class CreateDoodleViewController: UIViewController {
     
+    
+    let backBtn : UIButton = {
+        let view = UIButton()
+        view.setTitle("< 뒤로가기", for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 10)
+        view.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.61), for: .normal)
+        view.setTitleColor(.white, for: .highlighted)
+        return view
+    }()
+    
     var executeDrawCurrentAnnotationClosure = {} // 뷰 사라질때 맵에 방금 작성한 어노테이션 그리기
     
     let locationManager = CLLocationManager()
@@ -155,7 +165,18 @@ class CreateDoodleViewController: UIViewController {
         
         addTarget()
         
+        configureBackBtn()
+        backBtn.addTarget(self, action: #selector(clickBackBtn), for: .touchUpInside)
+        
     }
+    
+    @objc func clickBackBtn(){
+            let BottomViewController = BottomViewController()
+            self.dismiss(animated: true)
+
+//            self.navigationController?.pushViewController(BottomViewController, animated: true)
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -169,6 +190,17 @@ class CreateDoodleViewController: UIViewController {
         
     }
     
+    func configureBackBtn(){
+        self.view.addSubview(backBtn)
+        backBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 20),
+            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 10),
+            backBtn.widthAnchor.constraint(equalToConstant: 56),
+            backBtn.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+    }
     //MARK: - Custom 메소드
     func setUI() {
         

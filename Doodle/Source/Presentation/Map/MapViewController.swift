@@ -196,7 +196,7 @@ class MapViewController: UIViewController {
                     0.10 * $0.maximumDetentValue
                 }),
                 .custom(resolver: {
-                    0.55 * $0.maximumDetentValue
+                    0.37 * $0.maximumDetentValue
                 }),
                 .large()]
             sheet.largestUndimmedDetentIdentifier = .large

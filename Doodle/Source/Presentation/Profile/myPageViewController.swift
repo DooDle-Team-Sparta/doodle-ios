@@ -17,12 +17,7 @@ class MyPageViewController: UIViewController {
         view.setTitle("< 뒤로가기", for: .normal)
         view.titleLabel?.font = .systemFont(ofSize: 10)
         view.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.61), for: .normal)
-//        view.setBackgroundColor(.systemGray3, for: .highlighted)
         view.setTitleColor(.white, for: .highlighted)
-//        view.layer.borderWidth = 0.5
-//        view.layer.borderColor = UIColor(red: 0.708, green: 0.708, blue: 0.708, alpha: 1).cgColor
-//        view.layer.cornerRadius = 15
-//        view.layer.masksToBounds = true
         return view
     }()
     
