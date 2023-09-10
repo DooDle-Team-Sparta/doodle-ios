@@ -40,6 +40,13 @@ class BottomViewController: UIViewController,UITableViewDelegate{
 //        fatalError("init(coder:) has not been implemented")
 //    }
     
+    let pullView : UIView = {
+       let view = UIView()
+        view.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.15).cgColor
+        view.layer.cornerRadius = 5
+        return view
+    }()
+    
     let headerImage : UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "doodlelogo")
@@ -215,6 +222,7 @@ class BottomViewController: UIViewController,UITableViewDelegate{
 //    }
     
     func configureAll(){
+        configurePullView()
         configureHeader()
         cogHeader()
         configureDoodlePoint()
@@ -234,6 +242,18 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         configureDoodleStatusNoLogMes()
     }
     
+    func configurePullView(){
+        self.view.addSubview(pullView)
+        pullView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pullView.topAnchor.constraint(equalTo: view.topAnchor , constant: 10),
+            pullView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pullView.widthAnchor.constraint(equalToConstant: 120),
+            pullView.heightAnchor.constraint(equalToConstant: 2),
+            
+        ])
+        
+    }
     func configureHeader(){
         self.view.addSubview(headerImage)
         headerImage.translatesAutoresizingMaskIntoConstraints = false
