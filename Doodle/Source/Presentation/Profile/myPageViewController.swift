@@ -5,15 +5,12 @@
 //  Created by t2023-m0088 on 2023/09/04.
 //
 
-import UIKit
 import SwiftUI
 import SnapKit
 import Then
-import Alamofire
+import UIKit
 
-
-
-class myPageViewController: UIViewController {
+class MyPageViewController: UIViewController {
     
     let myPageLabel : UILabel = {
         let view = UILabel()
@@ -63,16 +60,26 @@ class myPageViewController: UIViewController {
         let view = UIButton()
         view.setTitle("프로필 설정", for: .normal)
         view.titleLabel?.font = .systemFont(ofSize: 10)
+        view.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.61), for: .normal)
+        view.setBackgroundColor(.systemGray3, for: .highlighted)
+        view.setTitleColor(.white, for: .highlighted)
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(red: 0.708, green: 0.708, blue: 0.708, alpha: 1).cgColor
         view.layer.cornerRadius = 15
-        view.backgroundColor = .systemGray3
+        view.layer.masksToBounds = true
         return view
     }()
     let LogOutBtn : UIButton = {
         let view = UIButton()
         view.setTitle("로그아웃", for: .normal)
         view.titleLabel?.font = .systemFont(ofSize: 14)
+        view.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.61), for: .normal)
+        view.setBackgroundColor(.systemGray3, for: .highlighted)
+        view.setTitleColor(.white, for: .highlighted)
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(red: 0.708, green: 0.708, blue: 0.708, alpha: 1).cgColor
         view.layer.cornerRadius = 25
-        view.backgroundColor = .systemGray3
+        view.layer.masksToBounds = true
         return view
     }()
     let setBtn1 : UIButton = {
@@ -170,6 +177,7 @@ class myPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAll2()
+        view.backgroundColor = .white
 
     }
     
@@ -195,7 +203,7 @@ class myPageViewController: UIViewController {
         self.view.addSubview(myPageLabel)
         myPageLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            myPageLabel.topAnchor.constraint(equalTo: view.topAnchor , constant: 80),
+            myPageLabel.topAnchor.constraint(equalTo: view.topAnchor , constant: 120),
             myPageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 30),
             myPageLabel.widthAnchor.constraint(equalToConstant: 150),
             myPageLabel.heightAnchor.constraint(equalToConstant: 40)
@@ -357,7 +365,7 @@ struct ViewControllerRepresentable1: UIViewControllerRepresentable{
     }
     @available(iOS 13.0, *)
     func makeUIViewController(context: Context) -> UIViewController {
-        myPageViewController()
+        MyPageViewController()
     }
     //    makeui
     

@@ -1,96 +1,35 @@
 //
-//  bottomViewController.swift
+//  BottomViewController.swift
 //  Doodle
 //
-//  Created by t2023-m0088 on 2023/09/04.
-//
+//  Created by Oong2 on 2023/09/04.
+//  Edited by yujinkim1 on 2023/09/09.
 
-import UIKit
 import SwiftUI
 import SnapKit
 import Then
-import Alamofire
 import MapKit
+import UIKit
 
 //class tableViewCell: UITableViewCell{
 //    static let reuseIdentifier = "Cell"
 //}
 let defaults = UserDefaults.standard
 
-class pointClass{
+
+class PointClass{
+
     var price: Int
-    
+
     init(price: Int) {
         self.price = price
     }
+
 }
 
-
-class bottomViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
-                            {
+class BottomViewController: UIViewController,UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! nowTableViewCell
-        let imageView1 = UIImageView()
-        cell.addSubview(imageView1)
-        imageView1.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
-        imageView1.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 0).isActive = true
-//        imageView1.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: 0).isActive = true
-//        imageView1.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: 0).isActive = true
-        imageView1.widthAnchor.constraint(equalToConstant: 280).isActive = true
-        imageView1.heightAnchor.constraint(equalToConstant: 92).isActive = true
-        imageView1.image = UIImage(named: "statusTest")
-        imageView1.contentMode = .scaleAspectFill
-        imageView1.translatesAutoresizingMaskIntoConstraints = false
-        imageView1.clipsToBounds = true
-        imageView1.layer.cornerRadius = 5
-        cell.selectionStyle = .none
-        
-        let mapView = MKMapView()
-        cell.addSubview(mapView)
-        mapView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: 0).isActive = true
-        mapView.widthAnchor.constraint(equalToConstant: 75).isActive = true
-        mapView.heightAnchor.constraint(equalToConstant: 92).isActive = true
-        mapView.clipsToBounds = true
-        mapView.layer.cornerRadius = 5
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.preferredConfiguration = MKHybridMapConfiguration()
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.isPitchEnabled = true
-        mapView.isRotateEnabled = true
-        mapView.showsCompass = true
-        mapView.showsScale = true
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
-        
-        func creatAnnotation(){
-            let annotation = MKPointAnnotation()
-            
-            annotation.coordinate = CLLocationCoordinate2D(latitude: 37.27543611, longitude: 127.4432194)
-            annotation.title = "예쁜 카페"
-            annotation.subtitle = "크리스마스 분위기 잔뜩나요"
-            mapView.addAnnotation(annotation)
-        }
-        
-        let label1 = UILabel()
-        cell.addSubview(label1)
-        label1.textAlignment = .center
-        label1.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
-        label1.leadingAnchor.constraint(equalTo: cell.leadingAnchor, constant: 50).isActive = true
-        label1.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        label1.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        label1.textColor = .white
-        label1.text = "서울 예쁜 카페 발견했어요"
-        
-        
-        return cell
-    }
+    let pointAll = PointClass(price: 0)
     
 //    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
 //        super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -126,10 +65,10 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.textAlignment = .left
         return view
     }()
-    let doodlePointLabel2 : UILabel = {
+    lazy var doodlePointLabel2 : UILabel = {
         let view = UILabel()
-        view.text = "\(defaults.integer(forKey: "doodlePointPlus")) P" // 포인트 입력값 받아야함
         view.textColor = UIColor(red: 0.213, green: 0.213, blue: 0.213, alpha: 1)
+        view.text = "0 P"
         view.font = UIFont.boldSystemFont(ofSize: 12)
         view.textAlignment = .center
         return view
@@ -181,8 +120,6 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.frame = view.frame
         view.clipsToBounds = true
         view.layer.cornerRadius = 23
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
-        view.addGestureRecognizer(tapGesture)
         view.isUserInteractionEnabled = true
         return view
     }()
@@ -208,16 +145,16 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         view.progressViewStyle = .default
         view.progressTintColor = UIColor(red: 1, green: 0.745, blue: 0.094, alpha: 1)
         view.transform = view.transform.scaledBy(x: 1, y: 2)
-        view.setProgress(0.2, animated: true)
+        view.setProgress(0, animated: true)
         return view
     }()
     let doodlePointResult : UILabel = {
         let view = UILabel()
-        var paragraphStyle = NSMutableParagraphStyle()
-        view.attributedText = NSMutableAttributedString(string: "40 / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         view.textColor = UIColor(red: 0.213, green: 0.213, blue: 0.213, alpha: 1)
         view.font = UIFont.boldSystemFont(ofSize: 12)
         view.textAlignment = .center
+        var paragraphStyle = NSMutableParagraphStyle()
+        view.attributedText = NSMutableAttributedString(string: "0 / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return view
     }()
     let locateLabel : UILabel = {
@@ -239,25 +176,42 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         configureAll()
         doodleTableView.dataSource = self
         doodleTableView.delegate = self
-        doodleTableView.register(nowTableViewCell.self, forCellReuseIdentifier: "Cell")
-        defaults.setValue("\(+5)", forKey: "doodlePointPlus")
-
+        doodleTableView.register(NowCell.self, forCellReuseIdentifier: "Cell")
+//        defaults.setValue("\(+5)", forKey: "doodlePointPlus")
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(StatusImageClick(_:)))
+        statusImage.addGestureRecognizer(tapGesture)
         addBtn.addTarget(self, action: #selector(addBtnClick), for: .touchUpInside)
 
     }
     
     @objc func StatusImageClick(_ gesture: UITapGestureRecognizer){
-        let myPageViewController = myPageViewController()
-        self.navigationController?.pushViewController(myPageViewController, animated: true)
+        let myPageViewController = MyPageViewController()
+//        self.navigationController?.pushViewController(myPageViewController, animated: true)
+        myPageViewController.modalPresentationStyle = .overCurrentContext
+        self.present(myPageViewController, animated: true)
     }
     @objc func addBtnClick(){
-//        let addPage = addPage()
-//        self.navigationController?.pushViewController(addPage, animated: true)
-
+        let CreateDoodleViewController = CreateDoodleViewController()
+        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        pointAll.price += 30
+        doodlePointLabel2.text = "\(pointAll.price) P"
+        var paragraphStyle = NSMutableParagraphStyle()
+        doodlePointResult.attributedText = NSMutableAttributedString(string: "\(pointAll.price) / 300 P", attributes: [NSAttributedString.Key.kern: -0.41, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        tierProgressView.progress += 0.1
+        if tierProgressView.progress == 1 {
+            statusTier.text = "등급 업 가능!"
+            
+        }
     }
+//
+//    func setLabel(){
+//        doodlePointLabel2.text = "\(pointAll.price) P"
+//    }
     
     func configureAll(){
         configureHeader()
@@ -283,7 +237,7 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(headerImage)
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 20),
+            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 100),
             headerImage.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20)
         ])
     }
@@ -291,7 +245,7 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.view.addSubview(addBtn)
         addBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 33),
+            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 113),
             addBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 350)
         ])
     }
@@ -421,8 +375,8 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
         doodlePointResult.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             doodlePointResult.topAnchor.constraint(equalTo: statusImage.bottomAnchor , constant: 18),
-            doodlePointResult.trailingAnchor.constraint(equalTo: doodleStatus.trailingAnchor , constant: -18),
-            doodlePointResult.widthAnchor.constraint(equalToConstant: 60),
+            doodlePointResult.leadingAnchor.constraint(equalTo: doodleStatus.leadingAnchor , constant: 280),
+            doodlePointResult.widthAnchor.constraint(equalToConstant: 66),
             doodlePointResult.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
@@ -448,30 +402,43 @@ class bottomViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
 }
 
-//#if DEBUG
-//
-//struct ViewControllerRepresentable: UIViewControllerRepresentable{
-//    
-//    //    update
-//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-//        
-//    }
-//    @available(iOS 13.0, *)
-//    func makeUIViewController(context: Context) -> UIViewController {
-//        bottomViewController()
-//    }
-//    //    makeui
-//    
-//}
-//
-//
-//struct ViewController_Previews: PreviewProvider{
-//    static var previews: some View{
-//        ViewControllerRepresentable()
-//            .previewDisplayName("아이폰 14")
-//        
-//    }
-//}
-//
-//
-//#endif
+extension BottomViewController:UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NowCell
+        //        cell.itemNameLabel.text = self.itemName[indexPath.row]
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+}
+#if DEBUG
+
+struct ViewControllerRepresentable: UIViewControllerRepresentable{
+    
+    //    update
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        
+    }
+    @available(iOS 13.0, *)
+    func makeUIViewController(context: Context) -> UIViewController {
+        BottomViewController()
+    }
+    //    makeui
+    
+}
+
+
+struct ViewController_Previews: PreviewProvider{
+    static var previews: some View{
+        ViewControllerRepresentable()
+            .previewDisplayName("아이폰 14")
+        
+    }
+}
+
+
+#endif

@@ -1,187 +1,90 @@
 //
-//  ViewController.swift
-//  MapKitPlay
+//  MapViewController.swift
+//  Doodle
 //
-//  Created by 경원이 on 2022/01/21.
-//
+//  Created by ThePerfectMartini on 2022/09/04.
+//  Edited by yujinkim1 on 2023/09/09.
 
-import SnapKit
-import UIKit
-import MapKit
 import CoreLocation
+import MapKit
+import SnapKit
 import Then
+import UIKit
 
+class DoodleAnnotation: MKPointAnnotation {
+    
+    var doodleImage: UIImage?
+    
+}
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
     
     let mapView = MapView()
     
-    let spartaCoordinate = CLLocationCoordinate2D(latitude: 37.50262815810942, longitude: 127.04461259087897)
-    
-    let locationManager = CLLocationManager()
-
-    
-    let width = 177.0
-    let height = 56.0
-
-    
-    
+    private lazy var cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
     
     override func loadView() {
+        
         view = mapView
+        
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        locationManager.requestWhenInUseAuthorization()
+        setLocation()
         
-        mapView.map.setRegion(MKCoordinateRegion(center: spartaCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)), animated: true)
-        
-        
-        mapView.map.delegate = self
-        locationManager.delegate = self
-        
-        addCustomPin()
+        buttonAddAction()
         
         buttonActions()
         
-        mapConfig()
-        
+        setMapViewConfigure()
         
     }
     
-    private func addCustomPin() {
-        let pin = MKPointAnnotation()
-        pin.coordinate = spartaCoordinate
-        pin.title = "테스트용 어노테이션 타이틀"
-        pin.subtitle = "테스트용 서브타이틀"
-        mapView.map.addAnnotation(pin)
-    }
-    
-    
-    //재사용 할 수 있는 어노테이션 만들기! 마치 테이블뷰의 재사용 Cell을 넣어주는 것과 같아요!
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard !annotation.isKind(of: MKUserLocation.self) else {
-            return nil
-        }
-        var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: "custom")
+    override func viewWillAppear(_ animated: Bool) {
         
-        if annotationView == nil {
-            //없으면 하나 만들어 주시고
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
-            annotationView?.snp.makeConstraints{
-                $0.width.equalTo(62.1)
-                $0.height.equalTo(74.5)
-            }
+        presentBottomSheet()
+        
+        if let savedDoodlesData = UserDefaults.standard.object(forKey: "DoodleGroup") as? Data,
+           let savedDoodles = try? JSONDecoder().decode(DoodleMarker.self, from: savedDoodlesData),
+           let latitude  = savedDoodles.location?["latitude"],
+           let longitude  = savedDoodles.location?["longitude"],
+           let image  = UIImage(data: savedDoodles.doodle!) {
             
-            let imageView = UIImageView()
-            imageView.image = UIImage(systemName: "person")
-            imageView.backgroundColor = .orange
-            imageView.alpha = 0.5
-            imageView.layer.cornerRadius = 10
-            annotationView?.addSubview(imageView)
-            imageView.snp.makeConstraints{
-                $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6.21, left: 6.21, bottom: 18.64, right: 6.21))
-            }
-            var subtitleLabel = UILabel()
-            subtitleLabel.text = "이름이름"
-            subtitleLabel.font = UIFont.systemFont(ofSize: 8)
-            annotationView?.addSubview(subtitleLabel)
-            subtitleLabel.snp.makeConstraints{
-                $0.centerX.equalToSuperview()
-                $0.bottom.equalToSuperview().inset(6.21)
-            }
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
+            let annotation = DoodleAnnotation()
             
-            annotationView?.backgroundColor = UIColor(white: 1, alpha: 0.5)
-            annotationView?.layer.cornerRadius = 10
+            annotation.coordinate = location
             
-            annotationView?.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-            annotationView?.layer.shadowOpacity = 0.5
-            annotationView?.layer.shadowRadius = 4
-            annotationView?.layer.shadowOffset = CGSize(width: 10, height: 10)
-            annotationView?.layer.shadowPath = nil
+            annotation.doodleImage = image
             
-            annotationView?.canShowCallout = true
+            mapView.map.addAnnotation(annotation)
             
-            
-            
-            
-//            callOutView를 통해서 추가적인 액션을 더해줄수도 있겠죠! 와 무지 간편합니다!
-            let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            miniButton.setImage(UIImage(systemName: "person"), for: .normal)
-            miniButton.tintColor = .blue
-            annotationView?.rightCalloutAccessoryView = miniButton
-            
-        } else {
-            annotationView?.annotation = annotation
         }
         
-        
-        return annotationView
     }
     
+    private func setLocation() {
         
-    @objc func annotationTapped() {
+        locationManager.delegate = self
         
-    }
-    
-    @objc func MoveLocation() {
+        locationManager.startUpdatingLocation()
         
-        mapView.map.showsUserLocation = false
-        
-        mapView.map.userTrackingMode = .none
-        
-        mapView.map.setRegion(MKCoordinateRegion(center: spartaCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
-    }
-    
-    @objc func findMyLocation() {
-        
-        guard let currentLocation = locationManager.location else {
-            checkUserLocationServicesAuthorization()
-            return
-        }
-        
-        mapView.map.showsUserLocation = true
-        
-        mapView.map.setUserTrackingMode(.follow, animated: true)
+        mapView.map.delegate = self
         
     }
     
-    //권한 설정
-    
-    func checkCurrentLocationAuthorization(authorizationStatus: CLAuthorizationStatus) {
-        switch authorizationStatus {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        case .restricted:
-            print("restricted")
-            goSetting()
-        case .denied:
-            print("denided")
-            goSetting()
-        case .authorizedAlways:
-            print("always")
-        case .authorizedWhenInUse:
-            print("wheninuse")
-            locationManager.startUpdatingLocation()
-        @unknown default:
-            print("unknown")
-        }
-        if #available(iOS 14.0, *) {
-            let accuracyState = locationManager.accuracyAuthorization
-            switch accuracyState {
-            case .fullAccuracy:
-                print("full")
-            case .reducedAccuracy:
-                print("reduced")
-            @unknown default:
-                print("Unknown")
-            }
-        }
+    private func setMapViewConfigure() {
+        
+        mapView.map.isRotateEnabled = false
+        
+        mapView.map.isPitchEnabled = false
+        
     }
     
     func goSetting() {
@@ -204,66 +107,244 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         present(alert, animated: true, completion: nil)
     }
     
-    func checkUserLocationServicesAuthorization() {
-        let authorizationStatus: CLAuthorizationStatus
-        if #available(iOS 14, *) {
-            authorizationStatus = locationManager.authorizationStatus
-        } else {
-            authorizationStatus = CLLocationManager.authorizationStatus()
+    func buttonActions() {
+        
+        mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
+        
+    }
+    
+    func buttonAddAction() {
+        
+        mapView.addDoodleButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        
+    }
+    
+    func annotationClick() {
+        
+        self.dismiss(animated: false)
+        
+        let mapDetailViewController = MapDetailViewController()
+        
+        mapDetailViewController.closure = {self.presentBottomSheet()}
+        
+        mapDetailViewController.modalPresentationStyle = .pageSheet
+        
+        self.present(mapDetailViewController, animated: true)
+        
+    }
+    
+    func presentBottomSheet() {
+        let bottomViewController = BottomViewController()
+        bottomViewController.isModalInPresentation = true
+        if let sheet = bottomViewController.sheetPresentationController {
+            sheet.preferredCornerRadius = 30
+            sheet.detents = [
+                .custom(resolver: {
+                    0.15 * $0.maximumDetentValue
+                }),
+                .custom(resolver: {
+                    0.55 * $0.maximumDetentValue
+                }),
+                .large()]
+            sheet.largestUndimmedDetentIdentifier = .large
         }
         
-        if CLLocationManager.locationServicesEnabled() {
-            checkCurrentLocationAuthorization(authorizationStatus: authorizationStatus)
-        }
-    }
-
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(#function)
-        checkUserLocationServicesAuthorization()
-    }
-
-    func buttonActions() {
-        mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
-        mapView.sesacLocationButton.addTarget(self, action: #selector(MoveLocation), for: .touchUpInside)
-    }
-    
-    private func mapConfig(){
-        mapView.map.isRotateEnabled = false
-        mapView.map.isPitchEnabled = false
+        self.present(bottomViewController, animated: true)
+        
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        print("테스트 - \(mapView)")
         
-        mapView.reloadInputViews()
+        annotationClick()
         
     }
-
 }
 
-//
-//
-//#if DEBUG
-//import SwiftUI
-//struct ViewControllerRepresentable: UIViewControllerRepresentable {
-//    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-//        // empty
-//    }
-//    @available(iOS 13.0.0, *)
-//    func makeUIViewController(context: Context) -> some UIViewController {
-//        RootViewController()
-//    }
-//}
-//@available(iOS 13.0, *)
-//struct SnapkitVCRepresentable_PreviewProvider: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            ViewControllerRepresentable()
-//                .ignoresSafeArea()
-//                .previewDisplayName("preview")
-//                .previewDevice(PreviewDevice(rawValue: "iphone"))
-//        }
-//    }
-//} #endif
+//MARK: - Core Location Location Manager
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        let authorizationStatus = manager.authorizationStatus
+        
+        switch authorizationStatus {
+                
+            case .notDetermined: manager.requestWhenInUseAuthorization()
+                
+            case .restricted, .denied: goSetting()
+                
+            case .authorizedAlways, .authorizedWhenInUse: manager.startUpdatingLocation()
+                
+            @unknown default: break
+                
+        }
+        
+        if #available(iOS 14.0, *) {
+            
+            switch manager.accuracyAuthorization {
+                    
+                case .fullAccuracy: print("full")
+                    
+                case .reducedAccuracy: print("reduced")
+                    
+                @unknown default: print("unknown")
+                    
+                    
+            }
+            
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        locationManagerDidChangeAuthorization(manager)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.first {
+            
+            print("현재 나의 위치 정보: \(location)")
+            
+            manager.stopUpdatingLocation()
+            
+            let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            
+            mapView.map.setRegion(coordinateRegion, animated: true)
+            
+        }
+        
+    }
+    
+}
 
+//MARK: - Map Kit Map View
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !annotation.isKind(of: MKUserLocation.self),
+              let doodleAnnotation = annotation as? DoodleAnnotation else { return nil }
+        
+        var annotationView = self.mapView.map.dequeueReusableAnnotationView(withIdentifier: "custom")
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "custom")
+            annotationView?.snp.makeConstraints{
+                $0.width.equalTo(62.1)
+                $0.height.equalTo(74.5)
+            }
+            
+            let imageView = UIImageView()
+            
+            if let doodleImage = doodleAnnotation.doodleImage {
+                imageView.image = doodleImage
+                
+                imageView.backgroundColor = .orange
+                imageView.alpha = 1
+                
+                imageView.layer.cornerRadius = 10
+                
+                annotationView?.addSubview(imageView)
+                
+                imageView.snp.makeConstraints{
+                    
+                    $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 6.21, left: 6.21,
+                                                                   bottom: 18.64, right: 6.21))
+                }
+                
+            }
+            
+            annotationView?.backgroundColor = UIColor(white: 1, alpha: 0.5)
+            
+            annotationView?.layer.cornerRadius = 10
+            
+            annotationView?.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+            
+            annotationView?.layer.shadowOpacity = 0.5
+            
+            annotationView?.layer.shadowRadius = 4
+            
+            annotationView?.layer.shadowOffset = CGSize(width: 10, height: 10)
+            
+            annotationView?.layer.shadowPath = nil
+            
+            let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            
+            miniButton.setImage(UIImage(systemName: "person"), for: .normal)
+            
+            miniButton.tintColor = .blue
+            
+            annotationView?.rightCalloutAccessoryView = miniButton
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+    
+}
+
+//MARK: - Custom Action
+extension MapViewController {
+    
+    @objc func findMyLocation() {
+        
+        guard let currentLocation = locationManager.location else { return }
+        
+        mapView.map.showsUserLocation = true
+        
+        let coordinateRegion = MKCoordinateRegion(center: currentLocation.coordinate,
+                                                  latitudinalMeters: 1000,
+                                                  longitudinalMeters: 1000)
+        
+        mapView.map.setRegion(coordinateRegion, animated: true)
+        
+        mapView.map.setUserTrackingMode(.follow, animated: true)
+        
+    }
+    
+    @objc func changeLocation() {
+        
+        mapView.map.showsUserLocation = false
+        
+        mapView.map.userTrackingMode = .none
+        
+    }
+    
+    @objc func addButtonTapped() {
+        
+        dismiss(animated: false)
+        
+        let createDoodleViewController = CreateDoodleViewController()
+        
+        createDoodleViewController.navigationItem.leftBarButtonItem = cancelButton
+        
+        createDoodleViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(createDoodleViewController, animated: true)
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDown))
+        
+        swipeGesture.direction = .down
+        
+        createDoodleViewController.view.addGestureRecognizer(swipeGesture)
+        
+    }
+    
+    @objc func swipeToDown(){
+        
+        self.dismiss(animated: true)
+        
+        presentBottomSheet()
+        
+    }
+    
+    @objc func cancelButtonTapped(_ button: UIButton) {
+        
+        dismiss(animated: true)
+        
+    }
+    
+}

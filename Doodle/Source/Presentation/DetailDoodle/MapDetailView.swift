@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 
-class MapDetailView: UIView{
+class MapDetailView: UIView {
     
     var titleText = "집 인테리어 했어요"
     var contentText = "서울시 연남구 낄낄로 136번길, 5F"
@@ -69,30 +69,24 @@ class MapDetailView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(mainLabel)
-        addSubview(subLabel)
-        addSubview(heartLabel)
-        addSubview(bottomShowButton)
-        addSubview(bottomCancelButton)
-        addSubview(imageView)
-
-        addSubview(circleBtnShare)
-        addSubview(circleBtnStar)
-        addSubview(circleBtnHeart)
-        
-        stackView.backgroundColor = .brown
+        configure()
+        constSet()
         
         mainLabel.text = titleText
         subLabel.text = contentText
         heartLabel.text = "♥ \(likeCount)k"
         
-        configure()
-        constSet()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configure()
+        constSet()
+        
+        mainLabel.text = titleText
+        subLabel.text = contentText
+        heartLabel.text = "♥ \(likeCount)k"
+        
     }
     
     
@@ -100,6 +94,16 @@ class MapDetailView: UIView{
     
     
     private func configure(){
+        addSubview(mainLabel)
+        addSubview(subLabel)
+        addSubview(heartLabel)
+        addSubview(bottomShowButton)
+        addSubview(bottomCancelButton)
+        addSubview(imageView)
+        
+        addSubview(circleBtnShare)
+        addSubview(circleBtnStar)
+        addSubview(circleBtnHeart)
     }
     
     private func constSet(){
@@ -159,7 +163,7 @@ class MapDetailView: UIView{
 
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
-struct detailPreview: PreviewProvider{
+struct detailPreview: PreviewProvider {
     static var previews: some View {
         UIViewPreview {
             

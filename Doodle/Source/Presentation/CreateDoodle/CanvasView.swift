@@ -173,7 +173,7 @@ extension CanvasView {
         
     }
     
-    func renderCanvasViewToImage() -> UIImage? {
+    func renderCanvasViewToImage() -> Data? {
         
         let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
         
@@ -183,7 +183,7 @@ extension CanvasView {
             
         }
         
-        return image
+        return image.pngData()
         
     }
     

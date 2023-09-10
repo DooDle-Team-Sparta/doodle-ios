@@ -1,8 +1,8 @@
 //
 //  MapView.swift
-//  MapKitPlay
+//  Doodle
 //
-//  Created by 경원이 on 2022/01/21.
+//  Created by ThePerfectMartini on 2022/09/04.
 //
 
 import Foundation
@@ -13,11 +13,23 @@ import Then
 
 
 class MapView: UIView{
-
     
-
-    let sesacLocationButton = UIButton()
-    let myLocationButton = UIButton()
+    let myLocationButtonSize:CGFloat = 40
+    
+    let addDoodleButtonSize:CGFloat = 50
+    
+    let myLocationButton = CircleButton().then{
+        $0.setIcon("scope")
+        $0.layer.cornerRadius = 15
+        
+    }
+    let addDoodleButton = CircleButton().then{
+        $0.setIcon("plus")
+        $0.backgroundColor = UIColor(red: 1, green: 0.747, blue: 0.096, alpha: 1)
+        $0.layer.cornerRadius = 30
+        
+    }
+    
     let map = MKMapView()
     
     
@@ -25,9 +37,7 @@ class MapView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addSubview(map)
-        self.addSubview(myLocationButton)
-        self.addSubview(sesacLocationButton)
+        
         configure()
         makeConstraints()
         
@@ -36,22 +46,16 @@ class MapView: UIView{
     
     
     required init?(coder: NSCoder) {
-        fatalError()
+        super.init(coder: coder)
+        configure()
+        makeConstraints()
+        
     }
     
     func configure() {
-        myLocationButton.setTitle("내 위치로", for: .normal)
-        myLocationButton.backgroundColor = .darkGray
-        myLocationButton.setTitleColor(.yellow, for: .normal)
-        myLocationButton.layer.cornerRadius = 12
-        
-        sesacLocationButton.setTitle("내일배움캠프", for: .normal)
-        sesacLocationButton.backgroundColor = .darkGray
-        sesacLocationButton.setTitleColor(.yellow, for: .normal)
-        sesacLocationButton.layer.cornerRadius = 12
-        
-//        myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
-//        sesacLocationButton.addTarget(self, action: #selector(MoveLocation), for: .touchUpInside)
+        addSubview(map)
+        addSubview(myLocationButton)
+        addSubview(addDoodleButton)
     }
     
     func makeConstraints() {
@@ -60,18 +64,34 @@ class MapView: UIView{
             
         }
         
-        myLocationButton.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalTo(self.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(50)
+        myLocationButton.snp.makeConstraints {
+            $0.right.equalToSuperview().inset(25)
+            $0.top.equalToSuperview().inset(60)
+            $0.width.height.equalTo(30)
+        }
+        addDoodleButton.snp.makeConstraints{
+            $0.right.equalToSuperview().inset(25)
+            $0.bottom.equalToSuperview().inset(170)
+            $0.width.height.equalTo(60)
+            
         }
         
-        sesacLocationButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(myLocationButton.snp.top).offset(-20)
-            make.height.equalTo(50)
-        }
     }
     
     
 }
 
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct mapPreview: PreviewProvider{
+    static var previews: some View {
+        UIViewPreview {
+            
+            let view = MapView()
+            
+            return view
+        }.previewLayout(.sizeThatFits)
+    }
+}
+#endif

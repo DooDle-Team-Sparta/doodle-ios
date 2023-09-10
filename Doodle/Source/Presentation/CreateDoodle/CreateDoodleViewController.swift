@@ -5,11 +5,14 @@
 //  Created by Yujin Kim on 2023-09-04.
 //
 
+import CoreLocation
 import SnapKit
 import Then
 import UIKit
 
 class CreateDoodleViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
     
     //MARK: - UI
     private lazy var topStackView = UIStackView().then({
@@ -129,6 +132,8 @@ class CreateDoodleViewController: UIViewController {
         $0.setTitleColor(UIColor(hex: "#141617"), for: .normal)
         
         $0.setTitle("등록", for: .normal)
+        
+        $0.isEnabled = true
         
     })
     
@@ -286,43 +291,70 @@ extension CreateDoodleViewController {
     
     @objc func submitButtonTapped(_ button: UIButton) {
         
-        if let imageToSave = canvasView.renderCanvasViewToImage() {
-
-            UIImageWriteToSavedPhotosAlbum(imageToSave, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        let doodleMarker = DoodleMarker()
+        
+        if let image = canvasView.renderCanvasViewToImage() {
+            
+            doodleMarker.doodle = image
+            
+            showDoodleSaveSuccessAlert()
             
         } else {
-            showImageSaveErrorAlert()
+            showDoodleSaveErrorAlert()
+        }
+        
+        if let location = locationManager.location {
+            doodleMarker.location = ["latitude": location.coordinate.latitude,
+                                     "longitude": location.coordinate.longitude]
+            
+            if let encodedDoodleGroup = try? JSONEncoder().encode(doodleMarker) {
+                
+                UserDefaults.standard.set(encodedDoodleGroup, forKey: "DoodleGroup")
+                
+            }
+            
+            showDoodleSaveSuccessAlert()
+        } else {
+            showDoodleSaveErrorAlert()
         }
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error {
- 
-            showImageSaveErrorAlert()
+            
+            showDoodleSaveErrorAlert()
             
             print("Image save error: \(error.localizedDescription)")
             
         } else {
-
-            showImageSaveSuccessAlert()
+            
+            showDoodleSaveSuccessAlert()
         }
     }
     
     
-    func showImageSaveSuccessAlert() {
+    func showDoodleSaveSuccessAlert() {
         
-        let alertController = UIAlertController(title: "성공", message: "이미지가 사진첩에 저장되었습니다.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "성공", message: "낙서를 추가했어요.", preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        })
         
         present(alertController, animated: true, completion: nil)
     }
     
-    func showImageSaveErrorAlert() {
+    func showDoodleSaveErrorAlert() {
         
-        let alertController = UIAlertController(title: "오류", message: "이미지를 저장하는 데 문제가 발생했습니다.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "오류", message: "낙서를 추가하는데 실패했어요.", preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        })
         
         present(alertController, animated: true, completion: nil)
     }
@@ -364,57 +396,3 @@ extension CreateDoodleViewController: UICollectionViewDelegate, UICollectionView
     }
     
 }
-
-extension UIColor {
-    
-    convenience init(hex: String, alpha: CGFloat = 1.0) {
-        
-        var hexFormat: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        
-        if hexFormat.hasPrefix("#") {
-            
-            hexFormat = String(hexFormat.dropFirst())
-            
-        }
-        
-        var rgb: UInt64 = 0
-        
-        Scanner(string: hexFormat).scanHexInt64(&rgb)
-        
-        self.init(red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
-                  green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
-                  blue: CGFloat(rgb & 0x0000FF) / 255.0,
-                  alpha: alpha)
-        
-    }
-}
-
-extension UIImage {
-    
-    static let undoImage = UIImage(systemName: "arrow.uturn.backward.circle", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-    static let redoImage = UIImage(systemName: "arrow.uturn.forward.circle", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-    static let clearImage = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-    
-}
-
-//#if DEBUG && canImport(SwiftUI)
-//import SwiftUI
-//private struct UIViewControllerRepresenter: UIViewControllerRepresentable {
-//    let viewController: UIViewController
-//    
-//    func makeUIViewController(context: Context) -> UIViewController {
-//        return viewController
-//    }
-//    
-//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-//}
-//
-//struct UIViewControllerPreviewView: PreviewProvider {
-//    static var previews: some View {
-//        let viewController = CreateDoodleViewController()
-//        return UIViewControllerRepresenter(viewController: viewController)
-//    }
-//}
-//#endif
