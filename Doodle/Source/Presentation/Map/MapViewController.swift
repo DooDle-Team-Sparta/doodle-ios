@@ -50,15 +50,15 @@ class MapViewController: UIViewController {
         
         
         print("테스트 - a")
-        URLManager.shared.getJsonData() {result in
-            switch result {
-            case .success(let data):
-                self.address = try? JSONDecoder().decode(Address.self, from: data)
-                print("테스트 - suc \(self.address?.documents)")
-            case .failure(let error):
-                print("테스트 - fail",error)
-            }
-        }
+//        URLManager.shared.getJsonData() {result in
+//            switch result {
+//            case .success(let data):
+//                self.address = try? JSONDecoder().decode(Address.self, from: data)
+//                print("테스트 - suc \(self.address?.documents)")
+//            case .failure(let error):
+//                print("테스트 - fail",error)
+//            }
+//        }
         
     }
     
@@ -193,7 +193,7 @@ class MapViewController: UIViewController {
             sheet.preferredCornerRadius = 30
             sheet.detents = [
                 .custom(resolver: {
-                    0.15 * $0.maximumDetentValue
+                    0.10 * $0.maximumDetentValue
                 }),
                 .custom(resolver: {
                     0.55 * $0.maximumDetentValue

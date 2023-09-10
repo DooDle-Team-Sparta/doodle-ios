@@ -197,7 +197,8 @@ class BottomViewController: UIViewController,UITableViewDelegate{
     }
     @objc func addBtnClick(){
         let CreateDoodleViewController = CreateDoodleViewController()
-        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+//        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
+        self.present(CreateDoodleViewController, animated: true)
         pointAll.price += 30
         doodlePointLabel2.text = "\(pointAll.price) P"
         var paragraphStyle = NSMutableParagraphStyle()
@@ -237,7 +238,7 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         self.view.addSubview(headerImage)
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 0),
+            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 35),
             headerImage.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20)
         ])
     }
@@ -245,7 +246,7 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         self.view.addSubview(addBtn)
         addBtn.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 113),
+            addBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 48),
             addBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 350)
         ])
     }
@@ -396,10 +397,9 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         NSLayoutConstraint.activate([
             doodleTableView.topAnchor.constraint(equalTo: locateLabel.bottomAnchor , constant: 8),
 //            doodleTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor , constant: 0),
-            doodleTableView.heightAnchor.constraint(equalToConstant: 500),
             doodleTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20),
             doodleTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor , constant: -20),
-            doodleTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            doodleTableView.heightAnchor.constraint(equalToConstant: 500)
         ])
     }
 }
