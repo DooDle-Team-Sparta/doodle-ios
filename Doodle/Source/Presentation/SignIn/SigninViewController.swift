@@ -467,97 +467,110 @@ extension SigninViewController {
     
     // 비밀번호 재설정 버튼 누를시
     @objc func resetButtonTapped() {
-        
-        let alert = UIAlertController(title: "비밀번호 재설정", message: "비밀번호를 변경하시겠습니까?", preferredStyle: .alert)
-        
-        let success = UIAlertAction(title: "확인", style: .default) { _ in
-            // 비밀번호 재설정 하는 알럿창
-            let newPasswordAlert = UIAlertController(title: "새로운 비밀번호", message: nil, preferredStyle: .alert)
-            
-            newPasswordAlert.addTextField { textfield in
-                textfield.placeholder = "비밀번호"
-                
-            }
-            
-            newPasswordAlert.addTextField { textfield in
-                textfield.placeholder = "비밀번호 확인"
-                
-            }
-            
-            let confirmAction = UIAlertAction(title: "완료", style: .default) { _ in
-                guard let passwordField1 = newPasswordAlert.textFields?[0],
-                      let passwordField2 = newPasswordAlert.textFields?[1]
-                else {
-                    
-                    return
-                    
-                }
-                
-                if passwordField1.text == passwordField2.text {
-                    
-                    print("새로운 비밀번호 업데이트완료")
-                    
-                    if var usersData = UserDefaults.standard.array(forKey: "users") as? [Data] {
-                        
-                        for (index, userData) in usersData.enumerated() {
-                            
-                            if var user = try? JSONDecoder().decode(User.self, from: userData),
-                               user.email == self.emailTextField.text
-                            {
-                                
-                                // 새롭게 입력된 비밀번호로 변경합니다.
-                                user.password = passwordField1.text ?? ""
-                                
-                                do {
-                                    // 변경된 유저 정보를 다시 인코딩합니다.
-                                    
-                                    let updatedUserData = try JSONEncoder().encode(user)
-                                    
-                                    // 배열 내 해당 유저 정보를 갱신합니다.
-                                    
-                                    usersData[index] = updatedUserData
-                                    
-                                    // 갱신된 유저 정보 배열을 UserDefaults에 다시 저장합니다.
-                                    
-                                    UserDefaults.standard.set(usersData, forKey: "users")
-                                    
-                                } catch {
-                                    
-                                    print(error.localizedDescription)
-                                }
-                                
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                } else {
-                    
-                    print("새로운 비밀번호 일치하지않음.")
-                    
-                    return
-                    
-                }
-            }
-            
-            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-            
-            newPasswordAlert.addAction(confirmAction)
-            
-            newPasswordAlert.addAction(cancelAction)
-            
-            self.present(newPasswordAlert, animated: true)
-        }
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel) { _ in
-        }
-        
-        alert.addAction(success)
-        
-        alert.addAction(cancel)
-        
-        present(alert, animated: true, completion: nil)
+    let alert = UIAlertController(title: "비밀번호 재설정", message: "현재 \(emailTextField.text ?? "") 이메일 주소의 비밀번호를 변경하시겠습니까?", preferredStyle: .alert)
+
+    let success = UIAlertAction(title: "확인", style: .default) { _ in
+    // 비밀번호 재설정 하는 알럿창
+    let newPasswordAlert = UIAlertController(title: "새로운 비밀번호", message: "현재 이메일주소: \(self.emailTextField.text ?? "")", preferredStyle: .alert)
+    newPasswordAlert.addTextField { textfield in
+    textfield.placeholder = "비밀번호"
+    // textfield.isSecureTextEntry = true
+    }
+
+    newPasswordAlert.addTextField { textfield in
+    textfield.placeholder = "비밀번호 확인"
+    // textfield.isSecureTextEntry = true
+    }
+
+    let confirmAction = UIAlertAction(title: "완료", style: .default) { _ in
+    guard let passwordField1 = newPasswordAlert.textFields?[0],
+    let passwordField2 = newPasswordAlert.textFields?[1]
+    else {
+    return
+    }
+    if passwordField1.text == passwordField2.text {
+    self.passwordMatchAlert()
+    print("새로운 비밀번호 업데이트완료")
+
+    if var usersData = UserDefaults.standard.array(forKey: "users") as? [Data] {
+    for (index, userData) in usersData.enumerated() {
+    if var user = try? JSONDecoder().decode(User.self, from: userData),
+    user.email == self.emailTextField.text
+    {
+    // 새롭게 입력된 비밀번호로 변경함
+    user.password = passwordField1.text ?? ""
+
+    do {
+    // 변경된 유저 정보를 다시 인코딩.
+    let updatedUserData = try JSONEncoder().encode(user)
+
+    // 배열 내 해당 유저 정보를 갱신.
+    usersData[index] = updatedUserData
+
+    // 갱신된 유저 정보 배열을 UserDefaults에 다시 저장
+    UserDefaults.standard.set(usersData, forKey: "users")
+
+    } catch {
+    print(error.localizedDescription)
+    }
+    }
+    }
+    }
+
+    } else {
+    print("새로운 비밀번호 일치하지않음.")
+    self.passwordMismatchAlert()
+    return
+    }
+    }
+    let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+    newPasswordAlert.addAction(confirmAction)
+    newPasswordAlert.addAction(cancelAction)
+    self.present(newPasswordAlert, animated: true)
+    }
+
+    let cancel = UIAlertAction(title: "취소", style: .cancel) { _ in
+    }
+
+    alert.addAction(success)
+    alert.addAction(cancel)
+
+    present(alert, animated: true, completion: nil)
+    }
+
+    // 불투명 알럿창
+    func showToast(message: String) {
+    let toastLabel = UILabel(frame: CGRect(x: view.frame.size.width / 2 - 120, y: 90, width: 240, height: 30))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.textAlignment = .center
+    toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+    toastLabel.text = message
+    toastLabel.alpha = 0.8
+    toastLabel.layer.cornerRadius = 10
+    toastLabel.clipsToBounds = true
+    view.addSubview(toastLabel)
+
+    UIView.animate(withDuration: 2.0, delay: 0.5, options: .curveEaseOut, animations: {
+    toastLabel.alpha = 0.0
+    }, completion: { isCompleted in
+    if isCompleted {
+    toastLabel.removeFromSuperview()
+    }
+    })
+    }
+
+    // 비밀번호가 일치하지 않을때 알럿창
+    func passwordMismatchAlert() {
+    let alert = UIAlertController(title: nil, message: "비밀번호가 일치하지 않습니다.", preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+    alert.addAction(okAction)
+    present(alert, animated: true, completion: nil)
+    }
+
+    // 비밀번호가 재설정됐을때 알럿창
+    func passwordMatchAlert() {
+    showToast(message: "비밀번호가 재설정 되었습니다.")
     }
     
     // MARK: - 키보드 설정
