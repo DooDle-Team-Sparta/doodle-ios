@@ -12,6 +12,20 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
+    let backBtn : UIButton = {
+        let view = UIButton()
+        view.setTitle("< 뒤로가기", for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 10)
+        view.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.61), for: .normal)
+//        view.setBackgroundColor(.systemGray3, for: .highlighted)
+        view.setTitleColor(.white, for: .highlighted)
+//        view.layer.borderWidth = 0.5
+//        view.layer.borderColor = UIColor(red: 0.708, green: 0.708, blue: 0.708, alpha: 1).cgColor
+//        view.layer.cornerRadius = 15
+//        view.layer.masksToBounds = true
+        return view
+    }()
+    
     let myPageLabel : UILabel = {
         let view = UILabel()
         view.textColor = UIColor(red: 0.213, green: 0.213, blue: 0.213, alpha: 1)
@@ -178,11 +192,14 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
         configureAll2()
         view.backgroundColor = .white
+        
+        backBtn.addTarget(self, action: #selector(clickBackBtn), for: .touchUpInside)
 
     }
     
 
     func configureAll2(){
+        configureBackBtn()
         configureMyPageLabel()
         configureMyPageImageShadow()
         configureMyPageImage()
@@ -198,7 +215,25 @@ class MyPageViewController: UIViewController {
         configureSetBtn6()
         configureSetBtn7()
     }
+    
+    @objc func clickBackBtn(){
+            let BottomViewController = BottomViewController()
+            self.dismiss(animated: true)
 
+//            self.navigationController?.pushViewController(BottomViewController, animated: true)
+    }
+
+    func configureBackBtn(){
+        self.view.addSubview(backBtn)
+        backBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 30),
+            backBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 10),
+            backBtn.widthAnchor.constraint(equalToConstant: 80),
+            backBtn.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+    }
     func configureMyPageLabel(){
         self.view.addSubview(myPageLabel)
         myPageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -258,16 +293,6 @@ class MyPageViewController: UIViewController {
             profileSetBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor , constant: -30),
             profileSetBtn.widthAnchor.constraint(equalToConstant: 80),
             profileSetBtn.heightAnchor.constraint(equalToConstant: 30  )
-        ])
-    }
-    func configureLogOutBtn(){
-        self.view.addSubview(LogOutBtn)
-        LogOutBtn.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            LogOutBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor , constant: -72),
-            LogOutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            LogOutBtn.widthAnchor.constraint(equalToConstant: 160),
-            LogOutBtn.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     func configureSetBtn1(){
@@ -338,6 +363,16 @@ class MyPageViewController: UIViewController {
             setBtn7.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             setBtn7.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             setBtn7.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    func configureLogOutBtn(){
+        self.view.addSubview(LogOutBtn)
+        LogOutBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            LogOutBtn.topAnchor.constraint(equalTo: view.topAnchor , constant: 660),
+            LogOutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            LogOutBtn.widthAnchor.constraint(equalToConstant: 160),
+            LogOutBtn.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 
