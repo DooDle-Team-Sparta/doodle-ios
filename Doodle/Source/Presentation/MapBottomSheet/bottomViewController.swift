@@ -237,7 +237,7 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         self.view.addSubview(headerImage)
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 100),
+            headerImage.topAnchor.constraint(equalTo: view.topAnchor , constant: 0),
             headerImage.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20)
         ])
     }
@@ -395,9 +395,11 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         doodleTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             doodleTableView.topAnchor.constraint(equalTo: locateLabel.bottomAnchor , constant: 8),
-            doodleTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor , constant: 0),
+//            doodleTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor , constant: 0),
+            doodleTableView.heightAnchor.constraint(equalToConstant: 500),
             doodleTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 20),
             doodleTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor , constant: -20),
+            doodleTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

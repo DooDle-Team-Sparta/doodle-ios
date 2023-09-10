@@ -32,7 +32,6 @@
 		27CA64E72AA6020300C74113 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E92AA607BA00C74113 /* SnapKit */; };
 		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
-		27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F12AA8488000C74113 /* CustomAnnotation.swift */; };
 		27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F32AA84CE000C74113 /* UIViewPreview.swift */; };
 		27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64FB2AA86C8100C74113 /* MapDetailView.swift */; };
 		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
@@ -66,7 +65,6 @@
 		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
 		27CA64E32AA5FC3000C74113 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		27CA64F12AA8488000C74113 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		27CA64FB2AA86C8100C74113 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 		1C98C6A02AA5F17F0029AAAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				27CA64F12AA8488000C74113 /* CustomAnnotation.swift */,
 				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
 				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
 				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
@@ -338,7 +335,6 @@
 				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
 				1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */,
-				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
 				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
 				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
 				27F2820B2AAD8F76006E180B /* URLEncoder.swift in Sources */,
