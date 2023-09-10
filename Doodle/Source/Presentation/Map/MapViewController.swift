@@ -15,9 +15,13 @@ class DoodleAnnotation: MKPointAnnotation {
     
     var doodleImage: UIImage?
     
+    var content: String?
+    
 }
 
 class MapViewController: UIViewController {
+    
+    var address:Address?
     
     let locationManager = CLLocationManager()
     
@@ -32,16 +36,29 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         setLocation()
         
-        buttonAddAction()
+        addButtonAction()
         
-        buttonActions()
+        showMyLocation()
         
         setMapViewConfigure()
+        
+        loadUserDefaultsAnnotations()
+        
+        
+        print("테스트 - a")
+//        URLManager.shared.getJsonData() {result in
+//            switch result {
+//            case .success(let data):
+//                self.address = try? JSONDecoder().decode(Address.self, from: data)
+//                print("테스트 - suc \(self.address?.documents)")
+//            case .failure(let error):
+//                print("테스트 - fail",error)
+//            }
+//        }
         
     }
     
@@ -49,24 +66,45 @@ class MapViewController: UIViewController {
         
         presentBottomSheet()
         
-        if let savedDoodlesData = UserDefaults.standard.object(forKey: "DoodleGroup") as? Data,
-           let savedDoodles = try? JSONDecoder().decode(DoodleMarker.self, from: savedDoodlesData),
+    }
+    
+    private func loadUserDefaultsAnnotations(){
+        // 첫 로드시 저장되어있던 어노테이션들을 맵에 그려줌
+//        if let savedDoodlesData = UserDefaults.standard.object(forKey: "DoodleGroup") as? Data,
+        for i in singleton.shared.list {
+            if let savedDoodles = try? JSONDecoder().decode(DoodleMarker.self, from: i as! Data),
+               let latitude  = savedDoodles.location?["latitude"],
+               let longitude  = savedDoodles.location?["longitude"],
+               let image  = UIImage(data: savedDoodles.doodle!) {
+                
+                let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                
+                drawAnnotation(location: location, image: image)
+            }
+        }
+    }
+    
+    private func drawCurrentAddedAnnotation(){
+        // 어노테이션 추가시 추가된 하나의 어노테이션을 맵에 그려줌
+        if let savedDoodles = try? JSONDecoder().decode(DoodleMarker.self, from: singleton.shared.list.last as! Data),
            let latitude  = savedDoodles.location?["latitude"],
            let longitude  = savedDoodles.location?["longitude"],
            let image  = UIImage(data: savedDoodles.doodle!) {
             
             let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
-            let annotation = DoodleAnnotation()
-            
-            annotation.coordinate = location
-            
-            annotation.doodleImage = image
-            
-            mapView.map.addAnnotation(annotation)
-            
+            drawAnnotation(location: location, image: image)
         }
+    }
+    
+    private func drawAnnotation(location: CLLocationCoordinate2D, image:UIImage){
+        let annotation = DoodleAnnotation()
         
+        annotation.coordinate = location
+        
+        annotation.doodleImage = image
+        
+        mapView.map.addAnnotation(annotation)
     }
     
     private func setLocation() {
@@ -89,7 +127,7 @@ class MapViewController: UIViewController {
     
     func goSetting() {
         
-        let alert = UIAlertController(title: "위치권한 요청", message: "러닝 거리 기록을 위해 항상 위치 권한이 필요합니다.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "위치권한 요청", message: "낙서 추가를 위해 항상 위치 권한이 필요합니다.", preferredStyle: .alert)
         let settingAction = UIAlertAction(title: "설정", style: .default) { action in
             guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
             // 열 수 있는 url 이라면, 이동
@@ -107,23 +145,38 @@ class MapViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func buttonActions() {
+    private func showMyLocation() {
         
         mapView.myLocationButton.addTarget(self, action: #selector(findMyLocation), for: .touchUpInside)
         
     }
     
-    func buttonAddAction() {
+    private func addButtonAction() {
         
         mapView.addDoodleButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         
     }
     
-    func annotationClick() {
+    private func annotationClick(_ annotation: MKAnnotationView) {
+        let anno = annotation.annotation
+        
+        let imageView = annotation.subviews[0] as? UIImageView
+        let image = imageView?.image ?? UIImage()
+        
+        let latitude = anno?.coordinate.latitude ?? 0.0
+        let longitude = anno?.coordinate.longitude ?? 0.0
         
         self.dismiss(animated: false)
         
         let mapDetailViewController = MapDetailViewController()
+        
+        mapDetailViewController.mapDetailView.imageView.image = image
+        
+        mapDetailViewController.mapDetailView.mainLabel.text = "콘텐츠변경?"
+        
+        mapDetailViewController.mapDetailView.subLabel.text = "위도 : \(latitude) 경도 : \(longitude)"
+        
+        mapDetailViewController.mapDetailView.heartLabel.text = "♥ \(999.123123)k"
         
         mapDetailViewController.closure = {self.presentBottomSheet()}
         
@@ -140,7 +193,7 @@ class MapViewController: UIViewController {
             sheet.preferredCornerRadius = 30
             sheet.detents = [
                 .custom(resolver: {
-                    0.15 * $0.maximumDetentValue
+                    0.10 * $0.maximumDetentValue
                 }),
                 .custom(resolver: {
                     0.55 * $0.maximumDetentValue
@@ -153,9 +206,10 @@ class MapViewController: UIViewController {
         
     }
     
-    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotationView) {
+        print("테스트 - \(annotation.annotation?.coordinate)")
         
-        annotationClick()
+        annotationClick(annotation)
         
     }
 }
@@ -168,28 +222,28 @@ extension MapViewController: CLLocationManagerDelegate {
         let authorizationStatus = manager.authorizationStatus
         
         switch authorizationStatus {
-                
-            case .notDetermined: manager.requestWhenInUseAuthorization()
-                
-            case .restricted, .denied: goSetting()
-                
-            case .authorizedAlways, .authorizedWhenInUse: manager.startUpdatingLocation()
-                
-            @unknown default: break
-                
+            
+        case .notDetermined: manager.requestWhenInUseAuthorization()
+            
+        case .restricted, .denied: goSetting()
+            
+        case .authorizedAlways, .authorizedWhenInUse: manager.startUpdatingLocation()
+            
+        @unknown default: break
+            
         }
         
         if #available(iOS 14.0, *) {
             
             switch manager.accuracyAuthorization {
-                    
-                case .fullAccuracy: print("full")
-                    
-                case .reducedAccuracy: print("reduced")
-                    
-                @unknown default: print("unknown")
-                    
-                    
+                
+            case .fullAccuracy: print("full")
+                
+            case .reducedAccuracy: print("reduced")
+                
+            @unknown default: print("unknown")
+                
+                
             }
             
         }
@@ -270,14 +324,6 @@ extension MapViewController: MKMapViewDelegate {
             
             annotationView?.layer.shadowPath = nil
             
-            let miniButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            
-            miniButton.setImage(UIImage(systemName: "person"), for: .normal)
-            
-            miniButton.tintColor = .blue
-            
-            annotationView?.rightCalloutAccessoryView = miniButton
-            
         } else {
             annotationView?.annotation = annotation
         }
@@ -319,6 +365,8 @@ extension MapViewController {
         
         let createDoodleViewController = CreateDoodleViewController()
         
+        createDoodleViewController.executeDrawCurrentAnnotationClosure = {self.drawCurrentAddedAnnotation()} // 작성한 어노테이션 그려주는 함수 전달
+        
         createDoodleViewController.navigationItem.leftBarButtonItem = cancelButton
         
         createDoodleViewController.modalPresentationStyle = .fullScreen
@@ -347,4 +395,38 @@ extension MapViewController {
         
     }
     
+}
+
+
+
+// MARK: - Address
+struct Address: Codable {
+    let meta: Meta
+    let documents: [Document]
+}
+
+// MARK: - Document
+struct Document: Codable {
+    let regionType, addressName, region1DepthName, region2DepthName: String
+    let region3DepthName, region4DepthName, code: String
+    let x, y: Double
+
+    enum CodingKeys: String, CodingKey {
+        case regionType = "region_type"
+        case addressName = "address_name"
+        case region1DepthName = "region_1depth_name"
+        case region2DepthName = "region_2depth_name"
+        case region3DepthName = "region_3depth_name"
+        case region4DepthName = "region_4depth_name"
+        case code, x, y
+    }
+}
+
+// MARK: - Meta
+struct Meta: Codable {
+    let totalCount: Int
+
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+    }
 }

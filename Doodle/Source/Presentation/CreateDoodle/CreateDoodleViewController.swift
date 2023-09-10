@@ -12,6 +12,8 @@ import UIKit
 
 class CreateDoodleViewController: UIViewController {
     
+    var executeDrawCurrentAnnotationClosure = {} // 뷰 사라질때 맵에 방금 작성한 어노테이션 그리기
+    
     let locationManager = CLLocationManager()
     
     //MARK: - UI
@@ -309,9 +311,13 @@ extension CreateDoodleViewController {
             
             if let encodedDoodleGroup = try? JSONEncoder().encode(doodleMarker) {
                 
+                singleton.shared.list.append(encodedDoodleGroup)
+                singleton.saveDoodleList()
                 UserDefaults.standard.set(encodedDoodleGroup, forKey: "DoodleGroup")
                 
             }
+            
+            self.executeDrawCurrentAnnotationClosure() // 맵뷰에 어노테이션 그리기
             
             showDoodleSaveSuccessAlert()
         } else {

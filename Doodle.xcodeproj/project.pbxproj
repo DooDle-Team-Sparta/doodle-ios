@@ -32,11 +32,12 @@
 		27CA64E72AA6020300C74113 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E92AA607BA00C74113 /* SnapKit */; };
 		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
-		27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F12AA8488000C74113 /* CustomAnnotation.swift */; };
 		27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F32AA84CE000C74113 /* UIViewPreview.swift */; };
 		27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64FB2AA86C8100C74113 /* MapDetailView.swift */; };
 		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
 		27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281FA2AA9D5C4006E180B /* CircleButton.swift */; };
+		27F282092AAD8F69006E180B /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F282082AAD8F69006E180B /* URLManager.swift */; };
+		27F2820B2AAD8F76006E180B /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2820A2AAD8F76006E180B /* URLEncoder.swift */; };
 		C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D12A12AA6ACAA0090581B /* SignupViewController.swift */; };
 		C77A361F2AA607480011F011 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -64,11 +65,12 @@
 		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
 		27CA64E32AA5FC3000C74113 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		27CA64F12AA8488000C74113 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
 		27CA64FB2AA86C8100C74113 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		27F282082AAD8F69006E180B /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		27F2820A2AAD8F76006E180B /* URLEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
 		C71D12A12AA6ACAA0090581B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,8 @@
 				1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */,
 				1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */,
 				1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */,
+				27F282082AAD8F69006E180B /* URLManager.swift */,
+				27F2820A2AAD8F76006E180B /* URLEncoder.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -215,7 +219,6 @@
 		1C98C6A02AA5F17F0029AAAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				27CA64F12AA8488000C74113 /* CustomAnnotation.swift */,
 				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
 				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
 				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
@@ -332,9 +335,9 @@
 				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
 				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
 				1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */,
-				27CA64F22AA8488000C74113 /* CustomAnnotation.swift in Sources */,
 				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
 				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
+				27F2820B2AAD8F76006E180B /* URLEncoder.swift in Sources */,
 				1C5004422AAC642900DBE27E /* DoodleMarker.swift in Sources */,
 				1C5004352AAB56BE00DBE27E /* UIImage+Extension.swift in Sources */,
 				27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */,
@@ -345,6 +348,7 @@
 				0705EB2E2AA740E40032420E /* NowCell.swift in Sources */,
 				1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */,
 				073E93E12AA5F8030008DEC7 /* BottomViewController.swift in Sources */,
+				27F282092AAD8F69006E180B /* URLManager.swift in Sources */,
 				1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */,
 				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
