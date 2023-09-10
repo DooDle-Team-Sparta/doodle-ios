@@ -7,35 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0705EB2E2AA740E40032420E /* NowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0705EB2D2AA740E40032420E /* NowCell.swift */; };
+		073E93DF2AA5F7E50008DEC7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93DE2AA5F7E50008DEC7 /* MyPageViewController.swift */; };
+		073E93E12AA5F8030008DEC7 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E93E02AA5F8030008DEC7 /* BottomViewController.swift */; };
+		073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 073E93E62AA6B6D20008DEC7 /* SnapKit */; };
+		1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA042AA8255300A819BB /* CanvasView.swift */; };
+		1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42BA052AA8255300A819BB /* ColorCell.swift */; };
+		1C5004352AAB56BE00DBE27E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */; };
+		1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */; };
+		1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */; };
+		1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50043A2AAB6A4400DBE27E /* BaseUITextField.swift */; };
+		1C5004402AAC534300DBE27E /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50043F2AAC534300DBE27E /* MapDetailViewController.swift */; };
+		1C5004422AAC642900DBE27E /* DoodleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5004412AAC642900DBE27E /* DoodleMarker.swift */; };
 		1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */; };
 		1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */; };
 		1C98C6872AA5EDA10029AAAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */; };
 		1C98C6882AA5EDA10029AAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C98C6862AA5EDA10029AAAA /* Assets.xcassets */; };
-		1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6892AA5EFB30029AAAA /* RootViewController.swift */; };
+		1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */; };
 		1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */; };
-		1C98C6B22AA5F3AC0029AAAA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B12AA5F3AC0029AAAA /* SnapKit */; };
-		1C98C6B42AA5F3AC0029AAAA /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */; };
 		1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B62AA5F3ED0029AAAA /* Then */; };
 		1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C98C6B92AA5F4160029AAAA /* Alamofire */; };
+		1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */; };
+		27CA64E42AA5FC3000C74113 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64E32AA5FC3000C74113 /* MapView.swift */; };
+		27CA64E72AA6020300C74113 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27CA64E92AA607BA00C74113 /* SnapKit */; };
+		27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64EF2AA7031F00C74113 /* MapViewController.swift */; };
+		27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64F32AA84CE000C74113 /* UIViewPreview.swift */; };
+		27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CA64FB2AA86C8100C74113 /* MapDetailView.swift */; };
+		27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281F82AA9B8D3006E180B /* CustomButton.swift */; };
+		27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F281FA2AA9D5C4006E180B /* CircleButton.swift */; };
+		27F282092AAD8F69006E180B /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F282082AAD8F69006E180B /* URLManager.swift */; };
+		27F2820B2AAD8F76006E180B /* URLEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F2820A2AAD8F76006E180B /* URLEncoder.swift */; };
+		C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D12A12AA6ACAA0090581B /* SignupViewController.swift */; };
+		C77A361F2AA607480011F011 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0705EB2D2AA740E40032420E /* NowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowCell.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
+		073E93DE2AA5F7E50008DEC7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		073E93E02AA5F8030008DEC7 /* BottomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
+		1C42BA042AA8255300A819BB /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		1C42BA052AA8255300A819BB /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldContainerView.swift; sourceTree = "<group>"; };
+		1C50043A2AAB6A4400DBE27E /* BaseUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITextField.swift; sourceTree = "<group>"; };
+		1C50043F2AAC534300DBE27E /* MapDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		1C5004412AAC642900DBE27E /* DoodleMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoodleMarker.swift; sourceTree = "<group>"; };
 		1C98C6682AA5ECDD0029AAAA /* Doodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C98C6792AA5ECDE0029AAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1C98C6852AA5EDA10029AAAA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C98C6862AA5EDA10029AAAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1C98C6892AA5EFB30029AAAA /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		1C98C6962AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C6992AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69B2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69D2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C69F2AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C6A12AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C6A32AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		1C98C6A52AA5F17F0029AAAA /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDoodleViewController.swift; sourceTree = "<group>"; };
+		27CA64E32AA5FC3000C74113 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		27CA64EF2AA7031F00C74113 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		27CA64F32AA84CE000C74113 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
+		27CA64FB2AA86C8100C74113 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
+		27F281F82AA9B8D3006E180B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		27F281FA2AA9D5C4006E180B /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		27F282082AAD8F69006E180B /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		27F2820A2AAD8F76006E180B /* URLEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncoder.swift; sourceTree = "<group>"; };
+		C71D12A12AA6ACAA0090581B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,10 +79,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C98C6B22AA5F3AC0029AAAA /* SnapKit in Frameworks */,
+				27CA64E72AA6020300C74113 /* (null) in Frameworks */,
+				073E93E72AA6B6D20008DEC7 /* SnapKit in Frameworks */,
+				C77A361F2AA607480011F011 /* (null) in Frameworks */,
+				27CA64EA2AA607BA00C74113 /* SnapKit in Frameworks */,
 				1C98C6BA2AA5F4160029AAAA /* Alamofire in Frameworks */,
 				1C98C6B72AA5F3ED0029AAAA /* Then in Frameworks */,
-				1C98C6B42AA5F3AC0029AAAA /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +121,6 @@
 		1C98C67F2AA5ED4A0029AAAA /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6892AA5EFB30029AAAA /* RootViewController.swift */,
 				1C98C6802AA5ED4A0029AAAA /* AppDelegate.swift */,
 				1C98C6812AA5ED4A0029AAAA /* SceneDelegate.swift */,
 			);
@@ -113,6 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				1C98C6AE2AA5F19C0029AAAA /* UIView+Extension.swift */,
+				1C5004342AAB56BE00DBE27E /* UIImage+Extension.swift */,
+				1C5004362AAB574C00DBE27E /* UIColor+Extension.swift */,
+				27F282082AAD8F69006E180B /* URLManager.swift */,
+				27F2820A2AAD8F76006E180B /* URLEncoder.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -120,7 +161,7 @@
 		1C98C6952AA5F17F0029AAAA /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6962AA5F17F0029AAAA /* .gitkeep */,
+				1C5004412AAC642900DBE27E /* DoodleMarker.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -129,11 +170,11 @@
 			isa = PBXGroup;
 			children = (
 				1C98C6982AA5F17F0029AAAA /* DetailDoodle */,
-				1C98C69A2AA5F17F0029AAAA /* SignUp */,
 				1C98C69C2AA5F17F0029AAAA /* CreateDoodle */,
 				1C98C69E2AA5F17F0029AAAA /* MapBottomSheet */,
 				1C98C6A02AA5F17F0029AAAA /* Map */,
 				1C98C6A22AA5F17F0029AAAA /* SignIn */,
+				1C98C69A2AA5F17F0029AAAA /* SignUp */,
 				1C98C6A42AA5F17F0029AAAA /* Profile */,
 			);
 			path = Presentation;
@@ -142,7 +183,8 @@
 		1C98C6982AA5F17F0029AAAA /* DetailDoodle */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6992AA5F17F0029AAAA /* .gitkeep */,
+				1C50043F2AAC534300DBE27E /* MapDetailViewController.swift */,
+				27CA64FB2AA86C8100C74113 /* MapDetailView.swift */,
 			);
 			path = DetailDoodle;
 			sourceTree = "<group>";
@@ -150,7 +192,7 @@
 		1C98C69A2AA5F17F0029AAAA /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69B2AA5F17F0029AAAA /* .gitkeep */,
+				C71D12A12AA6ACAA0090581B /* SignupViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -158,7 +200,9 @@
 		1C98C69C2AA5F17F0029AAAA /* CreateDoodle */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69D2AA5F17F0029AAAA /* .gitkeep */,
+				1C42BA042AA8255300A819BB /* CanvasView.swift */,
+				1C42BA052AA8255300A819BB /* ColorCell.swift */,
+				1C98C6C02AA611D40029AAAA /* CreateDoodleViewController.swift */,
 			);
 			path = CreateDoodle;
 			sourceTree = "<group>";
@@ -166,7 +210,8 @@
 		1C98C69E2AA5F17F0029AAAA /* MapBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C69F2AA5F17F0029AAAA /* .gitkeep */,
+				073E93E02AA5F8030008DEC7 /* BottomViewController.swift */,
+				0705EB2D2AA740E40032420E /* NowCell.swift */,
 			);
 			path = MapBottomSheet;
 			sourceTree = "<group>";
@@ -174,7 +219,11 @@
 		1C98C6A02AA5F17F0029AAAA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6A12AA5F17F0029AAAA /* .gitkeep */,
+				27F281F82AA9B8D3006E180B /* CustomButton.swift */,
+				27F281FA2AA9D5C4006E180B /* CircleButton.swift */,
+				27CA64F32AA84CE000C74113 /* UIViewPreview.swift */,
+				27CA64E32AA5FC3000C74113 /* MapView.swift */,
+				27CA64EF2AA7031F00C74113 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -182,7 +231,9 @@
 		1C98C6A22AA5F17F0029AAAA /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6A32AA5F17F0029AAAA /* .gitkeep */,
+				1C98C6892AA5EFB30029AAAA /* SigninViewController.swift */,
+				1C5004382AAB63B500DBE27E /* TextFieldContainerView.swift */,
+				1C50043A2AAB6A4400DBE27E /* BaseUITextField.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -190,7 +241,7 @@
 		1C98C6A42AA5F17F0029AAAA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				1C98C6A52AA5F17F0029AAAA /* .gitkeep */,
+				073E93DE2AA5F7E50008DEC7 /* MyPageViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -212,10 +263,10 @@
 			);
 			name = Doodle;
 			packageProductDependencies = (
-				1C98C6B12AA5F3AC0029AAAA /* SnapKit */,
-				1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */,
 				1C98C6B62AA5F3ED0029AAAA /* Then */,
 				1C98C6B92AA5F4160029AAAA /* Alamofire */,
+				073E93E62AA6B6D20008DEC7 /* SnapKit */,
+				27CA64E92AA607BA00C74113 /* SnapKit */,
 			);
 			productName = Doodle;
 			productReference = 1C98C6682AA5ECDD0029AAAA /* Doodle.app */;
@@ -246,9 +297,10 @@
 			);
 			mainGroup = 1C98C65F2AA5ECDD0029AAAA;
 			packageReferences = (
-				1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1C98C6B52AA5F3ED0029AAAA /* XCRemoteSwiftPackageReference "Then" */,
 				1C98C6B82AA5F4160029AAAA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				27CA64E82AA607BA00C74113 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1C98C6692AA5ECDD0029AAAA /* Products */;
 			projectDirPath = "";
@@ -277,9 +329,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C98C6822AA5ED4A0029AAAA /* AppDelegate.swift in Sources */,
+				1C42BA082AA8255300A819BB /* ColorCell.swift in Sources */,
+				1C42BA072AA8255300A819BB /* CanvasView.swift in Sources */,
 				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
+				1C98C6C12AA611D40029AAAA /* CreateDoodleViewController.swift in Sources */,
+				27CA64F42AA84CE000C74113 /* UIViewPreview.swift in Sources */,
+				1C5004392AAB63B500DBE27E /* TextFieldContainerView.swift in Sources */,
+				27CA64F02AA7031F00C74113 /* MapViewController.swift in Sources */,
+				27F281F92AA9B8D3006E180B /* CustomButton.swift in Sources */,
+				27F2820B2AAD8F76006E180B /* URLEncoder.swift in Sources */,
+				1C5004422AAC642900DBE27E /* DoodleMarker.swift in Sources */,
+				1C5004352AAB56BE00DBE27E /* UIImage+Extension.swift in Sources */,
+				27CA64FC2AA86C8100C74113 /* MapDetailView.swift in Sources */,
+				27F281FB2AA9D5C4006E180B /* CircleButton.swift in Sources */,
+				073E93DF2AA5F7E50008DEC7 /* MyPageViewController.swift in Sources */,
+				1C98C6832AA5ED4A0029AAAA /* SceneDelegate.swift in Sources */,
+				1C5004402AAC534300DBE27E /* MapDetailViewController.swift in Sources */,
+				0705EB2E2AA740E40032420E /* NowCell.swift in Sources */,
+				1C5004372AAB574C00DBE27E /* UIColor+Extension.swift in Sources */,
+				073E93E12AA5F8030008DEC7 /* BottomViewController.swift in Sources */,
+				27F282092AAD8F69006E180B /* URLManager.swift in Sources */,
+				1C50043B2AAB6A4400DBE27E /* BaseUITextField.swift in Sources */,
+				C71D12A22AA6ACAA0090581B /* SignupViewController.swift in Sources */,
 				1C98C6AF2AA5F19C0029AAAA /* UIView+Extension.swift in Sources */,
-				1C98C68A2AA5EFB30029AAAA /* RootViewController.swift in Sources */,
+				27CA64E42AA5FC3000C74113 /* MapView.swift in Sources */,
+				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
+				1C98C68A2AA5EFB30029AAAA /* SigninViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +484,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -437,6 +513,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Doodle/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "TESTER: 그림을 저장하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -480,7 +557,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -504,18 +581,21 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		27CA64E82AA607BA00C74113 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1C98C6B12AA5F3AC0029AAAA /* SnapKit */ = {
+		073E93E62AA6B6D20008DEC7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 073E93E52AA6B6D20008DEC7 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		1C98C6B32AA5F3AC0029AAAA /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1C98C6B02AA5F3AC0029AAAA /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		1C98C6B62AA5F3ED0029AAAA /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -526,6 +606,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C98C6B82AA5F4160029AAAA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		27CA64E92AA607BA00C74113 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27CA64E82AA607BA00C74113 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
