@@ -203,9 +203,11 @@ class BottomViewController: UIViewController,UITableViewDelegate{
         self.present(myPageViewController, animated: true)
     }
     @objc func addBtnClick(){
-        let CreateDoodleViewController = CreateDoodleViewController()
-//        self.navigationController?.pushViewController(CreateDoodleViewController, animated: true)
-        self.present(CreateDoodleViewController, animated: true)
+        let createDoodleViewController = CreateDoodleViewController()
+
+        self.present(createDoodleViewController, animated: true)
+        
+        
         pointAll.price += 30
         doodlePointLabel2.text = "\(pointAll.price) P"
         var paragraphStyle = NSMutableParagraphStyle()

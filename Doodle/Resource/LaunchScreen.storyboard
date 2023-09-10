@@ -16,14 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8bf279f4a7db5f7c006632c8640729a9" translatesAutoresizingMaskIntoConstraints="NO" id="ONc-jj-dBJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DoodleImage" translatesAutoresizingMaskIntoConstraints="NO" id="ONc-jj-dBJ">
                                 <rect key="frame" x="47" y="197" width="299" height="294"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모두의 낙서 두들" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yt-ax-1mf">
+                                <rect key="frame" x="131" y="514" width="131" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ONc-jj-dBJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hjd-zH-qo0"/>
+                            <constraint firstItem="5Yt-ax-1mf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="PnY-qx-Eee"/>
+                            <constraint firstItem="5Yt-ax-1mf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aPH-ge-OPq"/>
                             <constraint firstItem="ONc-jj-dBJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="138" id="kTs-SZ-2iy"/>
                             <constraint firstItem="ONc-jj-dBJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="kuU-Rq-ZgD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ONc-jj-dBJ" secondAttribute="bottom" constant="327" id="wPU-CK-EFn"/>
@@ -37,7 +45,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8bf279f4a7db5f7c006632c8640729a9" width="157.33332824707031" height="174"/>
+        <image name="DoodleImage" width="421.33334350585938" height="213.33332824707031"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -21,13 +21,9 @@ class DoodleAnnotation: MKPointAnnotation {
 
 class MapViewController: UIViewController {
     
-    var address:Address?
-    
     let locationManager = CLLocationManager()
     
     let mapView = MapView()
-    
-    private lazy var cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped(_:)))
     
     override func loadView() {
         
@@ -47,18 +43,6 @@ class MapViewController: UIViewController {
         setMapViewConfigure()
         
         loadUserDefaultsAnnotations()
-        
-        
-        print("테스트 - a")
-//        URLManager.shared.getJsonData() {result in
-//            switch result {
-//            case .success(let data):
-//                self.address = try? JSONDecoder().decode(Address.self, from: data)
-//                print("테스트 - suc \(self.address?.documents)")
-//            case .failure(let error):
-//                print("테스트 - fail",error)
-//            }
-//        }
         
     }
     
@@ -367,34 +351,10 @@ extension MapViewController {
         
         createDoodleViewController.executeDrawCurrentAnnotationClosure = {self.drawCurrentAddedAnnotation()} // 작성한 어노테이션 그려주는 함수 전달
         
-        createDoodleViewController.navigationItem.leftBarButtonItem = cancelButton
-        
         createDoodleViewController.modalPresentationStyle = .fullScreen
         
         self.present(createDoodleViewController, animated: true)
-        
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeToDown))
-        
-        swipeGesture.direction = .down
-        
-        createDoodleViewController.view.addGestureRecognizer(swipeGesture)
-        
     }
-    
-    @objc func swipeToDown(){
-        
-        self.dismiss(animated: true)
-        
-        presentBottomSheet()
-        
-    }
-    
-    @objc func cancelButtonTapped(_ button: UIButton) {
-        
-        dismiss(animated: true)
-        
-    }
-    
 }
 
 
